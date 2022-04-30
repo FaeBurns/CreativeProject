@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &170303872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170303873}
+  m_Layer: 0
+  m_Name: ExitLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &170303873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170303872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 0.75, z: 2.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 238157977}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174480877
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174480877}
   m_LocalRotation: {x: -0.17658027, y: -0, z: -0, w: 0.98428625}
-  m_LocalPosition: {x: -0, y: 1.23, z: 24.95}
+  m_LocalPosition: {x: -0, y: 1.23, z: 36.99}
   m_LocalScale: {x: 10.647726, y: 1, z: 12.206655}
   m_Children: []
   m_Father: {fileID: 1599859652}
@@ -399,6 +429,7 @@ GameObject:
   - component: {fileID: 238157977}
   - component: {fileID: 238157979}
   - component: {fileID: 238157978}
+  - component: {fileID: 238157980}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Untagged
@@ -414,12 +445,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238157976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.74, z: 0}
+  m_LocalPosition: {x: 0, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1455103889}
   - {fileID: 1108360074}
   - {fileID: 2126709731}
+  - {fileID: 170303873}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -435,6 +467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0169a9b1eb05c46a7e4773fe74ef2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 238157979}
+  switchController: {fileID: 238157980}
+  playerSwitchController: {fileID: 303477839}
   allWheels:
   - {fileID: 218933999}
   - {fileID: 1655533305}
@@ -453,6 +488,8 @@ MonoBehaviour:
   acceleration: 800
   breakingForce: 500
   maxSteerAngle: 12.5
+  exitThreshold: 1.3
+  exitLocation: {fileID: 170303873}
 --- !u!54 &238157979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -469,6 +506,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &238157980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238157976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c224401fece7ad346a5a3b262417cf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 0
+  controlledObjects:
+  - {fileID: 2126709730}
+  controlledComponents:
+  - {fileID: 238157978}
+  OnStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 238157978}
+        m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
+        m_MethodName: ToggleFreeze
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &303477831
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,13 +553,15 @@ GameObject:
   - component: {fileID: 303477838}
   - component: {fileID: 303477837}
   - component: {fileID: 303477836}
+  - component: {fileID: 303477839}
+  - component: {fileID: 303477840}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &303477832
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -605,14 +676,46 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303477831}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 2
+--- !u!114 &303477839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303477831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c224401fece7ad346a5a3b262417cf93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnStart: 1
+  controlledObjects:
+  - {fileID: 303477831}
+  controlledComponents: []
+  OnStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &303477840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303477831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa8a9f9a16feaf42ba16fbb3c943b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 1687258585}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
