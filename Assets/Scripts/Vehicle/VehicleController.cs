@@ -12,23 +12,19 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private WheelCollider[] frontSteeringWheels;
     [SerializeField] private WheelCollider[] backSteeringWheels;
 
-    [SerializeField] private float acceleration = 500f;
-    [SerializeField] private float breakingForce = 300f;
+    [SerializeField] private float acceleration = 1000f;
+    [SerializeField] private float breakingForce = 800f;
     [SerializeField] private float maxSteerAngle = 7f;
-
-    private float currentAcceleration = 0f;
-    private float currentBreakForce = 0f;
-    private float currentSteeringAngle = 0f;
 
     private delegate void WheelColliderDelegate(WheelCollider collider);
 
     private void FixedUpdate()
     {
         // accelerate on input
-        currentAcceleration = acceleration * Input.GetAxis("Vertical");
+        float currentAcceleration = acceleration * Input.GetAxis("Vertical");
 
         // break if space is held
-        currentBreakForce = Input.GetKey(KeyCode.Space) ? breakingForce : 0;
+        float currentBreakForce = Input.GetKey(KeyCode.Space) ? breakingForce : 0;
 
         // apply acceleration to wheels
         RunOnWheelCollection(allWheels, c => c.motorTorque = currentAcceleration);
@@ -37,7 +33,7 @@ public class VehicleController : MonoBehaviour
         RunOnWheelCollection(allWheels, c => c.brakeTorque = currentBreakForce);
 
         // steer on input
-        currentSteeringAngle = maxSteerAngle * Input.GetAxis("Horizontal");
+        float currentSteeringAngle = maxSteerAngle * Input.GetAxis("Horizontal");
 
         // turn specific wheels
         // invert steering of back wheels
