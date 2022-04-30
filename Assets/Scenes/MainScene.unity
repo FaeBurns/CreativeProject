@@ -140,7 +140,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &174480878
 BoxCollider:
@@ -212,11 +212,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174480877}
   m_LocalRotation: {x: -0.17658027, y: -0, z: -0, w: 0.98428625}
-  m_LocalPosition: {x: 0, y: 0.77, z: 44.79}
-  m_LocalScale: {x: 8.270079, y: 1, z: 12.206655}
+  m_LocalPosition: {x: -0, y: 1.23, z: 24.95}
+  m_LocalScale: {x: 10.647726, y: 1, z: 12.206655}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1599859652}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -20.341, y: 0, z: 0}
 --- !u!1 &180854051
 GameObject:
@@ -421,7 +421,7 @@ Transform:
   - {fileID: 1108360074}
   - {fileID: 2126709731}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &238157978
 MonoBehaviour:
@@ -450,9 +450,9 @@ MonoBehaviour:
   backSteeringWheels:
   - {fileID: 1498809953}
   - {fileID: 755346524}
-  acceleration: 1000
-  breakingForce: 800
-  maxSteerAngle: 7
+  acceleration: 800
+  breakingForce: 500
+  maxSteerAngle: 12.5
 --- !u!54 &238157979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ Transform:
   m_Children:
   - {fileID: 1687258585}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &303477836
 MonoBehaviour:
@@ -659,7 +659,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755346522
 GameObject:
@@ -937,8 +937,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1599859652}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1108360073
 GameObject:
@@ -1169,6 +1169,39 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!1 &1599859651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599859652}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1599859652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599859651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 174480881}
+  - {fileID: 1689653322}
+  - {fileID: 955225434}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1655533303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1397,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1689653319
 BoxCollider:
@@ -1436,11 +1469,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689653318}
   m_LocalRotation: {x: -0.124861285, y: 0.6959946, z: 0.12486093, w: 0.69599634}
-  m_LocalPosition: {x: 45.75, y: 0.77, z: 21.54}
-  m_LocalScale: {x: 55.847015, y: 1, z: 12.206655}
+  m_LocalPosition: {x: 55.655186, y: 1.4, z: -3.012577}
+  m_LocalScale: {x: 55.847015, y: 1, z: 12.2066555}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1599859652}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -20.341, y: 90, z: 0}
 --- !u!1 &1735203452
 GameObject:
@@ -1702,5 +1735,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 130, z: 90}
