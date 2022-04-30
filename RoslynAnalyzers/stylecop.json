@@ -4,7 +4,8 @@
     "documentationRules": {
       "companyName": "Fae Burns",
 	  "copyrightText": "    Copyright (c) Fae Burns. All rights reserved.",
-	  "documentInternalElements": false
+      "documentInternalElements": false,
+      "xmlHeader": false
     }
   }
 }
