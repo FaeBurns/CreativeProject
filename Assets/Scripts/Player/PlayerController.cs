@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerCameraController))]
-[RequireComponent (typeof(SwitchableController))]
+[RequireComponent(typeof(SwitchableController))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
