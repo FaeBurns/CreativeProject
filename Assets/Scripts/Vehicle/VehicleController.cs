@@ -19,6 +19,7 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private float acceleration = 1000f;
     [SerializeField] private float breakingForce = 800f;
     [SerializeField] private float maxSteerAngle = 7f;
+    [SerializeField] private float maxSpeed = 10f;
 
     [SerializeField] private float exitThreshold = 1.3f;
     [SerializeField] private Transform exitLocation;
@@ -60,7 +61,7 @@ public class VehicleController : MonoBehaviour
         float currentBrakeForce = Input.GetKey(KeyCode.Space) ? breakingForce : 0;
 
         // apply acceleration to wheels
-        allWheels.Execute(c => c.motorTorque = currentAcceleration);
+        allWheels.Execute(c => c.motorTorque = rb.velocity.sqrMagnitude <= (maxSpeed * maxSpeed) ? currentAcceleration : 0);
 
         // apply brake to wheels
         allWheels.Execute(c => c.brakeTorque = currentBrakeForce);

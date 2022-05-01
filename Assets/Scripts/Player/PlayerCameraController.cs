@@ -28,7 +28,7 @@ public class PlayerCameraController : MonoBehaviour
     private void LateUpdate()
     {
         // use scroll wheel to modify sensitivity in place of an options menu
-        sensitivity = Mathf.Max(0.5f, sensitivity + Input.mouseScrollDelta.y);
+        sensitivity = Mathf.Max(0.5f, sensitivity + (Input.mouseScrollDelta.y / 2));
 
         // get input values
         float horizontalRotation = Input.GetAxis("Mouse X") * sensitivity;

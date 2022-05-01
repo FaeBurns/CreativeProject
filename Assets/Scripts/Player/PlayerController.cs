@@ -11,6 +11,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private Transform rayOrigin;
+
+    [SerializeField]
     private float speed = 0.1f;
 
     private Rigidbody rb;
@@ -38,6 +41,14 @@ public class PlayerController : MonoBehaviour
 
         // rotate movement direction to point forwards relative to the player
         moveDirection = Quaternion.LookRotation(transform.forward, transform.up) * moveDirection * speed;
+
+        // fire a ray downwards
+        Ray ray = new Ray(rayOrigin.position, Vector3.down);
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f))
+        {
+            // modify move direction to use the normal of the hit object as its plane of movement
+            moveDirection = Vector3.ProjectOnPlane(moveDirection, hitInfo.normal);
+        }
 
         // move the rigidbody
         rb.MovePosition(rb.position + moveDirection);
