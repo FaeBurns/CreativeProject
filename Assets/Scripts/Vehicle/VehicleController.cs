@@ -42,7 +42,7 @@ public class VehicleController : MonoBehaviour
     private void Update()
     {
         // if we are moving slow enough when E is pressed
-        if (rb.velocity.magnitude <= exitThreshold && Input.GetKeyDown(KeyCode.E))
+        if (rb.velocity.sqrMagnitude <= (exitThreshold * exitThreshold) && Input.GetKeyDown(KeyCode.E))
         {
             // switch to player
             playerSwitchController.SwitchTo(switchController);

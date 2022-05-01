@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c224401fece7ad346a5a3b262417cf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableOnStart: 1
+  enableOnStart: 0
   controlledObjects:
   - {fileID: 2126709730}
   controlledComponents:
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c224401fece7ad346a5a3b262417cf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableOnStart: 0
+  enableOnStart: 1
   controlledObjects:
   - {fileID: 303477831}
   controlledComponents: []
