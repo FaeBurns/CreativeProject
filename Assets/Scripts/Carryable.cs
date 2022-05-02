@@ -17,6 +17,7 @@ public class Carryable : MonoBehaviour
     public Resource Resource;
 
     [SerializeField] private float dropVelocity = 3f;
+    [SerializeField] private Vector3 carryOffset = Vector3.zero;
 
     private Collider[] colliders;
     private Rigidbody rb;
@@ -35,7 +36,7 @@ public class Carryable : MonoBehaviour
         transform.SetParent(attachTransform, false);
 
         // clear position and rotation
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = carryOffset;
         transform.localRotation = Quaternion.identity;
     }
 
