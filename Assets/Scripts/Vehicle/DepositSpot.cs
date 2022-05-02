@@ -14,7 +14,7 @@ public class DepositSpot : MonoBehaviour
     /// <summary>
     /// Event fired when a resource is deposited.
     /// </summary>
-    public UnityEvent<KeyValuePair<Resource, int>[]> ResourceDeposited;
+    public UnityEvent<Dictionary<Resource, int>> ResourceDeposited;
 
     private readonly Dictionary<Resource, int> resourceCount = new Dictionary<Resource, int>();
 
@@ -37,7 +37,7 @@ public class DepositSpot : MonoBehaviour
         }
 
         // invoke notify event
-        ResourceDeposited?.Invoke(resourceCount.ToArray());
+        ResourceDeposited?.Invoke(resourceCount);
 
         Debug.LogFormat("Resource deposited: {0} x{1}", resource.name, resourceCount[resource]);
     }

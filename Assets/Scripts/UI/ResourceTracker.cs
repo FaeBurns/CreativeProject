@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class ResourceTracker : MonoBehaviour
 {
-    [SerializeField] private MissionManager missionManager;
+    [SerializeField] private MissionCollectResources collectionMission;
 
     [SerializeField] private ResourceTextSerializedDictionary resourceTextMarkers = new ResourceTextSerializedDictionary();
 
@@ -20,7 +20,7 @@ public class ResourceTracker : MonoBehaviour
     /// Updates the ui resources.
     /// </summary>
     /// <param name="resources">The resources to update and their new counts.</param>
-    public void UpdateResources(KeyValuePair<Resource, int>[] resources)
+    public void UpdateResources(Dictionary<Resource, int> resources)
     {
         // loop through each in resources
         foreach (KeyValuePair<Resource, int> pair in resources)
@@ -34,7 +34,7 @@ public class ResourceTracker : MonoBehaviour
             // get required values
             Resource resource = pair.Key;
             int currentCount = pair.Value;
-            int max = missionManager.GetDesiredResourceCount(pair.Key);
+            int max = collectionMission.GetDesiredResourceCount(pair.Key);
 
             // set text
             resourceTextMarkers[pair.Key].text = string.Format(formatText, resource.Name, currentCount, max);
@@ -44,12 +44,12 @@ public class ResourceTracker : MonoBehaviour
     private void Awake()
     {
         // get list of all resources tracked in the UI
-        List<KeyValuePair<Resource, int>> initialValues = new List<KeyValuePair<Resource, int>>();
+        Dictionary<Resource, int> initialValues = new Dictionary<Resource, int>();
         foreach (KeyValuePair<Resource, TextMeshProUGUI> pair in resourceTextMarkers)
         {
-            initialValues.Add(new KeyValuePair<Resource, int>(pair.Key, 0));
+            initialValues.Add(pair.Key, 0);
         }
 
-        UpdateResources(initialValues.ToArray());
+        UpdateResources(initialValues);
     }
 }

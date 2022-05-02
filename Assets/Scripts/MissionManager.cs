@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// A component responsible for keeping track of progress throughout the mission.
 /// </summary>
 public class MissionManager : MonoBehaviour
 {
-    [SerializeField] private ResourceIntSerializedDictionary desiredResourceCount = new ResourceIntSerializedDictionary();
+    [SerializeField] private Mission currentMission = null;
+
+    [SerializeField] private UnityEvent missionProgressed;
+
+    [SerializeField] private TextMeshProUGUI currentMissionStatement;
 
     /// <summary>
-    /// Gets the desired count of a type of resource.
+    /// Checks to see if the mission should be progressed, if so then the mission will be advanced.
     /// </summary>
-    /// <param name="resource">The resource to check against.</param>
-    /// <returns>Resource count if the resource is found, 0 if not.</returns>
-    public int GetDesiredResourceCount(Resource resource)
+    public void UpdateMissionProgress()
     {
-        if (desiredResourceCount.TryGetValue(resource, out int result))
+        if (currentMission.GetProgress() == 1f)
         {
-            return result;
+            currentMission = currentMission.GetNextMission();
+            missionProgressed?.Invoke();
+            currentMission.Initialize(this);
+            currentMissionStatement.text = currentMission.MissionStatement;
         }
-
-        return 0;
     }
 }

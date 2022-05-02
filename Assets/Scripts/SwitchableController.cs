@@ -17,6 +17,11 @@ public class SwitchableController : MonoBehaviour
     [SerializeField] private MonoBehaviour[] controlledComponents;
 
     /// <summary>
+    /// Gets a value indicating whether this controller is currently active.
+    /// </summary>
+    public bool CurrentState { get; private set; }
+
+    /// <summary>
     /// Switches control from <paramref name="previous"/> to this.
     /// </summary>
     /// <param name="previous">The <see cref="SwitchableController"/> to disable.</param>
@@ -32,6 +37,8 @@ public class SwitchableController : MonoBehaviour
     /// <param name="state">The desired state.</param>
     protected void SetState(bool state)
     {
+        CurrentState = state;
+
         // set enable objects to state
         // set disbale objects to inverse of state
         controlledObjects.Execute(o => o.SetActive(state));
