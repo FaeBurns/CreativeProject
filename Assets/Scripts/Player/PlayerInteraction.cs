@@ -5,8 +5,11 @@
 /// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField]
-    private Transform cameraTransform;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private Transform carryHoldTransform;
+
+    [SerializeField] private Carryable currentlyHeldObject;
+    [SerializeField] private float interactDistance = 1.5f;
 
     private SwitchableController switchController;
 
@@ -17,21 +20,67 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        // if E has been pressed
         if (Input.GetKeyDown(KeyCode.E))
         {
-            TryEnterVehicle();
+            // check if an object is held
+            if (currentlyHeldObject == null)
+            {
+                // check for something to interact with
+                CheckForInteractions();
+                return;
+            }
+
+            // check for deposit spot
+            if (CheckForObject(interactDistance, out RaycastHit hitInfo))
+            {
+                DepositSpot depositSpot = hitInfo.collider.GetComponentInParent<DepositSpot>();
+                if (depositSpot != null)
+                {
+                    depositSpot.Deposit(currentlyHeldObject.Resource);
+                    Destroy(currentlyHeldObject.gameObject);
+                    return;
+                }
+            }
+
+            // drop the currently held object
+            currentlyHeldObject.Drop();
+            currentlyHeldObject = null;
         }
     }
 
-    private void TryEnterVehicle()
+    private bool CheckForObject(float distance, out RaycastHit hitInfo)
     {
+        // create ray from camera
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 1))
+
+        // return result from cast
+        return Physics.Raycast(ray, out hitInfo, distance);
+    }
+
+    private void CheckForInteractions()
+    {
+        // if an object was found when using the vehicle's search distance
+        if (CheckForObject(interactDistance, out RaycastHit hitInfo))
         {
+            // Get SwitchableController in target
             SwitchableController target = hitInfo.collider.GetComponentInParent<SwitchableController>();
             if (target != null)
             {
+                // if target was found then switch
                 target.SwitchTo(switchController);
+                return;
+            }
+
+            // Get Carryable in target
+            Carryable carryable = hitInfo.collider.GetComponentInParent<Carryable>();
+
+            // check if a Carryable object was found
+            if (carryable != null)
+            {
+                // pick up carryable
+                carryable.Pickup(carryHoldTransform);
+                currentlyHeldObject = carryable;
             }
         }
     }
