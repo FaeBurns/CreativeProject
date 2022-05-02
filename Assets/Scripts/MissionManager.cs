@@ -14,7 +14,7 @@ public class MissionManager : MonoBehaviour
 {
     [SerializeField] private Mission currentMission = null;
 
-    [SerializeField] private UnityEvent missionProgressed;
+    [SerializeField] private UnityEvent missionBegun;
 
     [SerializeField] private TextMeshProUGUI currentMissionStatement;
 
@@ -23,12 +23,38 @@ public class MissionManager : MonoBehaviour
     /// </summary>
     public void UpdateMissionProgress()
     {
-        if (currentMission.GetProgress() == 1f)
+        if (currentMission.GetProgress() >= 1f)
         {
             currentMission = currentMission.GetNextMission();
-            missionProgressed?.Invoke();
+            StartNewMission();
+            return;
+        }
+
+        // update statement text regardless - may display progress
+        currentMissionStatement.text = currentMission.MissionStatement;
+    }
+
+    private void Start()
+    {
+        StartNewMission();
+    }
+
+    private void StartNewMission()
+    {
+        if (currentMission != null)
+        {
+            missionBegun?.Invoke();
             currentMission.Initialize(this);
             currentMissionStatement.text = currentMission.MissionStatement;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            currentMission = currentMission.GetNextMission();
+            StartNewMission();
         }
     }
 }

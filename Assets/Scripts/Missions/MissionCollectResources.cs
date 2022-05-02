@@ -8,8 +8,12 @@ using UnityEngine;
 internal class MissionCollectResources : Mission
 {
     [SerializeField] private ResourceIntSerializedDictionary desiredResourceCount = new ResourceIntSerializedDictionary();
+    [SerializeField] private string adaptiveMissionStatement;
 
     private Dictionary<Resource, int> cachedResources = null;
+    private float cachedProgress = 0f;
+
+    public override string MissionStatement => string.Format(adaptiveMissionStatement, Mathf.Floor(cachedProgress * 100f));
 
     /// <summary>
     /// Gets the desired count of a type of resource.
@@ -48,7 +52,7 @@ internal class MissionCollectResources : Mission
             if (cachedResources.TryGetValue(pair.Key, out int value))
             {
                 // add to the tally of collected resources
-                totalResourcesCollected++;
+                totalResourcesCollected += value;
             }
         }
 
@@ -59,7 +63,9 @@ internal class MissionCollectResources : Mission
         }
 
         // return percentage of collected resources
-        return totalResourcesCollected / totalResourceCount;
+        // convert one of them to float before dividing
+        cachedProgress = (float)totalResourcesCollected / totalResourceCount;
+        return cachedProgress;
     }
 
     /// <summary>
@@ -68,5 +74,6 @@ internal class MissionCollectResources : Mission
     public void OnResourceDeposited(Dictionary<Resource, int> resources)
     {
         cachedResources = resources;
+        NotifyOfProgress();
     }
 }

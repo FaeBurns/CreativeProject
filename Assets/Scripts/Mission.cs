@@ -11,13 +11,14 @@ using UnityEngine;
 /// </summary>
 public abstract class Mission : MonoBehaviour
 {
-    [SerializeField] private string missionStatement;
     [SerializeField] private Mission defaultNextMission;
+    [SerializeField] private HudCompass compass;
+    [SerializeField] private Transform compassTarget;
 
     /// <summary>
     /// Gets the mission statement ascociated with this mission.
     /// </summary>
-    public virtual string MissionStatement { get; }
+    public abstract string MissionStatement { get; }
 
     private MissionManager Host { get; set; }
 
@@ -34,6 +35,13 @@ public abstract class Mission : MonoBehaviour
     public void Initialize(MissionManager host)
     {
         Host = host;
+
+        if (compassTarget != null)
+        {
+            compass.SetTarget(compassTarget);
+        }
+
+        Begin();
     }
 
     /// <summary>

@@ -11,6 +11,9 @@ using UnityEngine;
 public class MissionVictory : Mission
 {
     /// <inheritdoc/>
+    public override string MissionStatement => string.Empty;
+
+    /// <inheritdoc/>
     public override float GetProgress()
     {
         return 0;

@@ -8,8 +8,10 @@ using UnityEngine;
 /// <summary>
 /// A mission handling the player's arrival at the resource cache.
 /// </summary>
-public class SimpleTraversalMission : Mission
+public class MissionSimpleTraversal : StatementedMission
 {
+    [SerializeField] private GameObject triggerToEnable;
+
     private bool hasPlayerEntered = false;
 
     /// <inheritdoc/>
@@ -25,5 +27,14 @@ public class SimpleTraversalMission : Mission
     {
         hasPlayerEntered = true;
         NotifyOfProgress();
+    }
+
+    /// <inheritdoc/>
+    protected override void Begin()
+    {
+        if (triggerToEnable != null)
+        {
+            triggerToEnable.SetActive(true);
+        }
     }
 }
