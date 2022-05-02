@@ -16,7 +16,7 @@ public class Carryable : MonoBehaviour
     /// </summary>
     public Resource Resource;
 
-    [SerializeField] private float dropVelocity = 5f;
+    [SerializeField] private float dropVelocity = 3f;
 
     private Collider[] colliders;
     private Rigidbody rb;
