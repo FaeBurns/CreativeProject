@@ -11,6 +11,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Carryable : MonoBehaviour
 {
+    /// <summary>
+    /// The optional resource this <see cref="Carryable"/> holds.
+    /// </summary>
+    public Resource Resource;
+
     [SerializeField] private float dropVelocity = 5f;
 
     private Collider[] colliders;

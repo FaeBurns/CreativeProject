@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 238157979}
   - component: {fileID: 238157978}
   - component: {fileID: 238157980}
+  - component: {fileID: 238157981}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Untagged
@@ -640,6 +641,7 @@ Transform:
   - {fileID: 2126709731}
   - {fileID: 170303873}
   - {fileID: 713753647}
+  - {fileID: 1860617765}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -707,12 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c224401fece7ad346a5a3b262417cf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableOnStart: 0
-  controlledObjects:
-  - {fileID: 2126709730}
-  controlledComponents:
-  - {fileID: 238157978}
-  OnStateChanged:
+  StateChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 238157978}
@@ -722,6 +719,38 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enableOnStart: 0
+  controlledObjects:
+  - {fileID: 2126709730}
+  controlledComponents:
+  - {fileID: 238157978}
+--- !u!114 &238157981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238157976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51688ade453dd3e4487fc3dd70fdf5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResourceDeposited:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -887,13 +916,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c224401fece7ad346a5a3b262417cf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StateChanged:
+    m_PersistentCalls:
+      m_Calls: []
   enableOnStart: 1
   controlledObjects:
   - {fileID: 303477831}
   controlledComponents: []
-  OnStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &303477840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,8 +938,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1687258585}
   carryHoldTransform: {fileID: 1052687130}
   currentlyHeldObject: {fileID: 0}
-  pickupDistance: 2
-  vehicleEnterDistance: 1.5
+  interactDistance: 1.5
 --- !u!1 &414812385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4921606bb937247429e6c127efe7c72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Resource: {fileID: 11400000, guid: 55356482bd0c8d448a671be8919ae7e1, type: 2}
   dropVelocity: 1
 --- !u!54 &1022608401
 Rigidbody:
@@ -1789,11 +1818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b2a1131fb5a6c4dad0d3d4627a8909, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b2a1131fb5a6c4dad0d3d4627a8909, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b2a1131fb5a6c4dad0d3d4627a8909, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2404,6 +2433,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 168827393}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1860617764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860617765}
+  m_Layer: 0
+  m_Name: Depositing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860617765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860617764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 238157977}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876564465
 GameObject:

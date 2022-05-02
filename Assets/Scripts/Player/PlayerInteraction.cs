@@ -31,6 +31,18 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
 
+            // check for deposit spot
+            if (CheckForObject(interactDistance, out RaycastHit hitInfo))
+            {
+                DepositSpot depositSpot = hitInfo.collider.GetComponentInParent<DepositSpot>();
+                if (depositSpot != null)
+                {
+                    depositSpot.Deposit(currentlyHeldObject.Resource);
+                    Destroy(currentlyHeldObject.gameObject);
+                    return;
+                }
+            }
+
             // drop the currently held object
             currentlyHeldObject.Drop();
             currentlyHeldObject = null;

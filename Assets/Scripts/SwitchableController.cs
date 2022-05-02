@@ -6,14 +6,15 @@ using UnityEngine.Events;
 /// </summary>
 public class SwitchableController : MonoBehaviour
 {
+    /// <summary>
+    /// Event fired when state is changed.
+    /// </summary>
+    public UnityEvent<bool> StateChanged;
+
     [SerializeField] private bool enableOnStart = false;
 
     [SerializeField] private GameObject[] controlledObjects;
     [SerializeField] private MonoBehaviour[] controlledComponents;
-
-#pragma warning disable SA1306 // Field names should begin with lower-case letter
-    [SerializeField] private UnityEvent<bool> OnStateChanged;
-#pragma warning restore SA1306 // Field names should begin with lower-case letter
 
     /// <summary>
     /// Switches control from <paramref name="previous"/> to this.
@@ -36,7 +37,7 @@ public class SwitchableController : MonoBehaviour
         controlledObjects.Execute(o => o.SetActive(state));
         controlledComponents.Execute(c => c.enabled = state);
 
-        OnStateChanged?.Invoke(state);
+        StateChanged?.Invoke(state);
     }
 
     private void Start()
