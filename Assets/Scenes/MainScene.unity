@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.18273862, g: 0.18774454, b: 0.1949462, a: 1}
+  m_IndirectSpecularColor: {r: 0.2025152, g: 0.20324717, b: 0.2045895, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -707,8 +707,8 @@ MonoBehaviour:
   backSteeringWheels:
   - {fileID: 1498809953}
   - {fileID: 755346524}
-  acceleration: 1000
-  breakingForce: 800
+  acceleration: 2000
+  breakingForce: 1500
   maxSteerAngle: 12.5
   maxSpeed: 20
   exitThreshold: 1.3
