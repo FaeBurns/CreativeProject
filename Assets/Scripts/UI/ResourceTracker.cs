@@ -1,0 +1,55 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using UnityEngine;
+
+/// <summary>
+/// A component responsible for keeping track of updating the UI to show resource collection progress.
+/// </summary>
+public class ResourceTracker : MonoBehaviour
+{
+    [SerializeField] private MissionManager missionManager;
+
+    [SerializeField] private ResourceTextSerializedDictionary resourceTextMarkers = new ResourceTextSerializedDictionary();
+
+    [Tooltip("Text that will be formatted to get the result in the UI.\n{0} - Resource Name\n{1} - current resource count\n{2} - desired resource count")]
+    [SerializeField] private string formatText;
+
+    /// <summary>
+    /// Updates the ui resources.
+    /// </summary>
+    /// <param name="resources">The resources to update and their new counts.</param>
+    public void UpdateResources(KeyValuePair<Resource, int>[] resources)
+    {
+        // loop through each in resources
+        foreach (KeyValuePair<Resource, int> pair in resources)
+        {
+            // pass if not included by this resource tracker
+            if (!resourceTextMarkers.ContainsKey(pair.Key))
+            {
+                continue;
+            }
+
+            // get required values
+            Resource resource = pair.Key;
+            int currentCount = pair.Value;
+            int max = missionManager.GetDesiredResourceCount(pair.Key);
+
+            // set text
+            resourceTextMarkers[pair.Key].text = string.Format(formatText, resource.Name, currentCount, max);
+        }
+    }
+
+    private void Awake()
+    {
+        // get list of all resources tracked in the UI
+        List<KeyValuePair<Resource, int>> initialValues = new List<KeyValuePair<Resource, int>>();
+        foreach (KeyValuePair<Resource, TextMeshProUGUI> pair in resourceTextMarkers)
+        {
+            initialValues.Add(new KeyValuePair<Resource, int>(pair.Key, 0));
+        }
+
+        UpdateResources(initialValues.ToArray());
+    }
+}
