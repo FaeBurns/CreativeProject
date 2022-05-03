@@ -354,6 +354,12 @@ MonoBehaviour:
   defaultNextMission: {fileID: 971109414}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 414812386}
+  started:
+    m_PersistentCalls:
+      m_Calls: []
+  completed:
+    m_PersistentCalls:
+      m_Calls: []
   missionStatement: You've made it into the valley. Keep going, the crash site is
     just up ahead.
   triggerToEnable: {fileID: 1707914485}
@@ -844,6 +850,12 @@ MonoBehaviour:
   defaultNextMission: {fileID: 0}
   compass: {fileID: 0}
   compassTarget: {fileID: 0}
+  started:
+    m_PersistentCalls:
+      m_Calls: []
+  completed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &238157976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,8 +1520,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1359889930}
-        m_TargetAssemblyTypeName: Mission, Assembly-CSharp
-        m_MethodName: NotifyOfProgress
+        m_TargetAssemblyTypeName: MissionSimpleTraversal, Assembly-CSharp
+        m_MethodName: OnPlayerEnteredLocation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1615,7 +1627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &485312964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1636,7 +1648,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 159.68, y: 83.740005}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &485312965
 MonoBehaviour:
@@ -2394,6 +2406,12 @@ MonoBehaviour:
   defaultNextMission: {fileID: 228058156}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 1803362891}
+  started:
+    m_PersistentCalls:
+      m_Calls: []
+  completed:
+    m_PersistentCalls:
+      m_Calls: []
   missionStatement: Good Job. Now bring the goods back.
   triggerToEnable: {fileID: 83907592}
 --- !u!1001 &969128245
@@ -2504,6 +2522,36 @@ MonoBehaviour:
   defaultNextMission: {fileID: 876882537}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 238157977}
+  started:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 485312963}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  completed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 485312963}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   desiredResourceCount:
     m_keys:
     - {fileID: 11400000, guid: 0ae2715747255344dafc655f1168ffda, type: 2}
@@ -3132,10 +3180,10 @@ RectTransform:
   m_Father: {fileID: 485312964}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -5}
+  m_SizeDelta: {x: 139.68, y: 24.58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1272879809
 MonoBehaviour:
@@ -3277,9 +3325,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a575d0ba42c5bf4cb38149cf4cb88f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultNextMission: {fileID: 971109414}
+  defaultNextMission: {fileID: 99590120}
   compass: {fileID: 188253526}
-  compassTarget: {fileID: 414812386}
+  compassTarget: {fileID: 1807649079}
+  started:
+    m_PersistentCalls:
+      m_Calls: []
+  completed:
+    m_PersistentCalls:
+      m_Calls: []
   missionStatement: Make your way over to the resource cache. Our maps show that
     it won't be a straight path.
   triggerToEnable: {fileID: 361544012}
@@ -3677,10 +3731,10 @@ RectTransform:
   m_Father: {fileID: 485312964}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -29.58}
+  m_SizeDelta: {x: 139.68, y: 24.58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1561589377
 MonoBehaviour:
@@ -5700,10 +5754,10 @@ RectTransform:
   m_Father: {fileID: 485312964}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -54.16}
+  m_SizeDelta: {x: 139.68, y: 24.58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2145309820
 MonoBehaviour:
