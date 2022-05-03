@@ -1,7 +1,7 @@
 Controls:
 	Walking:
 	WASD - move
-	E - interact, enter vehicle
+	E - enter vehicle, pick up/drop, deposit
 	Mouse - move camera
 	Scroll wheel - increase/decrease sensitivity
 	
@@ -14,7 +14,3 @@ Controls:
 	E - exit vehicle (only when stopped)
 	
 	Alt+F4 - exit
-	
-Goal for this build:
-Head towards the marker on your compass
-Your path will not be a straight line and you will encounter obstacles that you must go around
