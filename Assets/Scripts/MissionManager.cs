@@ -25,6 +25,10 @@ public class MissionManager : MonoBehaviour
     {
         if (currentMission.GetProgress() >= 1f)
         {
+            // end current mission
+            currentMission.End();
+
+            // start next mission
             currentMission = currentMission.GetNextMission();
             StartNewMission();
             return;
@@ -53,6 +57,11 @@ public class MissionManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            if (currentMission != null)
+            {
+                currentMission.End();
+            }
+
             currentMission = currentMission.GetNextMission();
             StartNewMission();
         }

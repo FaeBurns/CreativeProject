@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 /// <summary>
 /// Component responsible for updating the compass on the UI.
@@ -6,6 +7,7 @@
 public class HudCompass : MonoBehaviour
 {
     [SerializeField] private RectTransform directionIndicator;
+    [SerializeField] private TextMeshProUGUI distanceText;
 
     [SerializeField] private Transform targetTransform;
 
@@ -30,5 +32,14 @@ public class HudCompass : MonoBehaviour
 
         // set the position of the indicator to the angle
         directionIndicator.anchoredPosition = new Vector2(targetAngle, 0f);
+
+        // get raw distance
+        float distance = Vector3.Distance(camera.transform.position, targetTransform.position);
+
+        // get as integer
+        distance = Mathf.Floor(distance);
+
+        // set the distance text
+        distanceText.text = distance.ToString() + "m";
     }
 }

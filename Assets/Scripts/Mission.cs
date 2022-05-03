@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// An abstract component responsible for keeping track of a missions progress.
@@ -14,6 +15,9 @@ public abstract class Mission : MonoBehaviour
     [SerializeField] private Mission defaultNextMission;
     [SerializeField] private HudCompass compass;
     [SerializeField] private Transform compassTarget;
+
+    [SerializeField] private UnityEvent started;
+    [SerializeField] private UnityEvent completed;
 
     /// <summary>
     /// Gets the mission statement ascociated with this mission.
@@ -42,6 +46,16 @@ public abstract class Mission : MonoBehaviour
         }
 
         Begin();
+        started?.Invoke();
+    }
+
+    /// <summary>
+    /// Ends this mission.
+    /// </summary>
+    public void End()
+    {
+        Finish();
+        completed?.Invoke();
     }
 
     /// <summary>
@@ -65,6 +79,13 @@ public abstract class Mission : MonoBehaviour
     /// Called when this Mission is started.
     /// </summary>
     protected virtual void Begin()
+    {
+    }
+
+    /// <summary>
+    /// Called when this Mission has ended.
+    /// </summary>
+    protected virtual void Finish()
     {
     }
 }
