@@ -24,6 +24,12 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private float exitThreshold = 1.3f;
     [SerializeField] private Transform exitLocation;
 
+    [SerializeField] private VehicleFirstPersonCameraController forwardCam;
+    [SerializeField] private VehicleFirstPersonCameraController backCam;
+    private bool currentCamForward;
+
+    private float globalMultiplier = 1f;
+
     /// <summary>
     /// Freezes all motion.
     /// </summary>
@@ -37,6 +43,10 @@ public class VehicleController : MonoBehaviour
         allWheels.Execute(c => c.motorTorque = 0);
 
         rb.isKinematic = !enable;
+
+        // reset camera and controls.
+        currentCamForward = true;
+        globalMultiplier = 1;
     }
 
     private void Update()
@@ -49,6 +59,22 @@ public class VehicleController : MonoBehaviour
 
             // teleport player
             playerSwitchController.transform.SetPositionAndRotation(exitLocation.position, exitLocation.rotation);
+
+            return;
+        }
+
+        // if Q has been pressed
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            // switch cameras
+            backCam.gameObject.SetActive(currentCamForward);
+            forwardCam.gameObject.SetActive(!currentCamForward);
+
+            // invert controls
+            globalMultiplier *= -1;
+
+            // set state for next camera switch
+            currentCamForward = !currentCamForward;
         }
     }
 
@@ -61,17 +87,17 @@ public class VehicleController : MonoBehaviour
         float currentBrakeForce = Input.GetKey(KeyCode.Space) ? breakingForce : 0;
 
         // apply acceleration to wheels
-        allWheels.Execute(c => c.motorTorque = rb.velocity.sqrMagnitude <= (maxSpeed * maxSpeed) ? currentAcceleration : 0);
+        allWheels.Execute(c => c.motorTorque = rb.velocity.sqrMagnitude <= (maxSpeed * maxSpeed) ? currentAcceleration * globalMultiplier : 0);
 
         // apply brake to wheels
-        allWheels.Execute(c => c.brakeTorque = currentBrakeForce);
+        allWheels.Execute(c => c.brakeTorque = currentBrakeForce * globalMultiplier);
 
         // steer on input
         float currentSteeringAngle = maxSteerAngle * Input.GetAxis("Horizontal");
 
         // turn specific wheels
         // invert steering of back wheels
-        frontSteeringWheels.Execute(c => c.steerAngle = currentSteeringAngle);
-        backSteeringWheels.Execute(c => c.steerAngle = -currentSteeringAngle);
+        frontSteeringWheels.Execute(c => c.steerAngle = currentSteeringAngle * globalMultiplier);
+        backSteeringWheels.Execute(c => c.steerAngle = -currentSteeringAngle * globalMultiplier);
     }
 }
