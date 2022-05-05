@@ -348,5 +348,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbdff1930a554f4b81afaeb4e305d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyTextMesh: {fileID: 5565872019699099816}
-  useTextMesh: {fileID: 5565872018975275612}
+  KeyTextMesh: {fileID: 5565872019699099816}
+  UseTextMesh: {fileID: 5565872018975275612}

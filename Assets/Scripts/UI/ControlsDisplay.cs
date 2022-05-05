@@ -4,19 +4,27 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// A component responsible for updating the Controls UI.
+/// </summary>
 public class ControlsDisplay : MonoBehaviour
 {
-    [SerializeField] private GameObject controlsPrefab;
-    private List<ControlsAccessor> activeControls = new List<ControlsAccessor>();
+    private readonly List<ControlsAccessor> activeControls = new List<ControlsAccessor>();
 
+    [SerializeField] private GameObject controlsPrefab;
+
+    /// <summary>
+    /// Refreshes the UI with a new set of controls.
+    /// </summary>
+    /// <param name="controls">The controls to push to the UI.</param>
     public void Refresh(ControlDefinition[] controls)
     {
         MatchCount(controls.Length);
 
         for (int i = 0; i < controls.Length; i++)
         {
-            activeControls[i].keyTextMesh.text = controls[i].Key;
-            activeControls[i].useTextMesh.text = controls[i].Usage;
+            activeControls[i].KeyTextMesh.text = controls[i].Key;
+            activeControls[i].UseTextMesh.text = controls[i].Usage;
         }
     }
 
