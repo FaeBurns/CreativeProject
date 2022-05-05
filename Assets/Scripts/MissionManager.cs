@@ -70,11 +70,10 @@ public class MissionManager : MonoBehaviour
         {
             if (currentMission != null)
             {
-                currentMission.End();
+                currentMission.ForceCancel();
+                currentMission = currentMission.GetNextMission();
+                StartNewMission();
             }
-
-            currentMission = currentMission.GetNextMission();
-            StartNewMission();
         }
     }
 }
