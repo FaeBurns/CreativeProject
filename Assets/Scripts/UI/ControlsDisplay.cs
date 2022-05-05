@@ -30,11 +30,12 @@ public class ControlsDisplay : MonoBehaviour
         }
 
         // remove any unrequired
-        for (int t = count; t < activeControls.Count; t++)
+        // loop x times where x is how much higher activeControls.Count is than count
+        while (count < activeControls.Count)
         {
-            // destroy extras
-            Destroy(activeControls[t].gameObject);
-            activeControls.RemoveAt(t);
+            // always destroy first element - stops issues with array size
+            Destroy(activeControls[0].gameObject);
+            activeControls.RemoveAt(0);
         }
     }
 }
