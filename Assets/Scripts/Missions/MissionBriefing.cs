@@ -14,15 +14,7 @@ using UnityEngine.UIElements;
 /// </summary>
 public class MissionBriefing : Mission
 {
-    [SerializeField] private string[] message;
-    [SerializeField] private float timeToWaitFor = 3f;
-    [SerializeField] private float fadeTime = 0.5f;
-
-    [SerializeField] private CanvasGroup fadeGroup;
-    [SerializeField] private TextMeshProUGUI messageText;
-
-    [SerializeField] private bool startFaded = false;
-    [SerializeField] private bool endFaded = false;
+    [SerializeField] private DisplayableMessage message;
 
     private bool finishedBrief = false;
 
@@ -38,94 +30,22 @@ public class MissionBriefing : Mission
     /// <inheritdoc/>
     protected override void Begin()
     {
-        StartCoroutine(DisplayAndFadeOut(message));
+        // get MessageDisplay
+        MessageDisplay messageDisplay = GameManager.Instance.MessageDisplay;
+
+        // Display Message
+        messageDisplay.DisplayMessage(message, OnMessageFinished);
     }
 
-    private IEnumerator DisplayAndFadeOut(string[] wholeMessage)
+    /// <inheritdoc/>
+    protected override void Cancel()
     {
-        if (startFaded)
-        {
-            fadeGroup.alpha = 1;
-        }
-        else
-        {
-            // fade background in
-            yield return FadeGroup(fadeTime, 0, 1);
-        }
+        GameManager.Instance.MessageDisplay.Stop();
+    }
 
-        // display message in order
-        for (int i = 0; i < wholeMessage.Length; i++)
-        {
-            // display part of message
-            yield return DisplayMessage(wholeMessage[i], timeToWaitFor);
-        }
-
-        if (!endFaded)
-        {
-            // fade background out
-            yield return FadeGroup(fadeTime, 1, 0);
-        }
-
+    private void OnMessageFinished()
+    {
         finishedBrief = true;
         NotifyOfProgress();
-    }
-
-    private IEnumerator DisplayMessage(string message, float waitTime)
-    {
-        // set text
-        messageText.text = message.Replace("\\n", "\n");
-
-        // fade text in
-        yield return FadeText(fadeTime, 0, 1);
-
-        // wait
-        yield return new WaitForSeconds(waitTime);
-
-        // fade text out
-        yield return FadeText(fadeTime, 1, 0);
-    }
-
-    private IEnumerator FadeText(float timeToFade, float start, float end)
-    {
-        // fade
-        float startTime = Time.time;
-        float endTime = Time.time + timeToFade;
-
-        // while time has not yet passed
-        while (Time.time <= endTime)
-        {
-            // get alpha
-            float alpha = Mathf.InverseLerp(startTime, endTime, Time.time);
-
-            // set visual alpha
-            messageText.alpha = Mathf.Lerp(start, end, alpha);
-
-            // wait for next frame
-            yield return null;
-        }
-
-        messageText.alpha = end;
-    }
-
-    private IEnumerator FadeGroup(float timeToFade, float start, float end)
-    {
-        // fade
-        float startTime = Time.time;
-        float endTime = Time.time + timeToFade;
-
-        // while time has not yet passed
-        while (Time.time <= endTime)
-        {
-            // get alpha
-            float alpha = Mathf.InverseLerp(startTime, endTime, Time.time);
-
-            // set visual alpha
-            fadeGroup.alpha = Mathf.Lerp(start, end, alpha);
-
-            // wait for next frame
-            yield return null;
-        }
-
-        fadeGroup.alpha = end;
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class FlipChecker : MonoBehaviour
 {
+    [SerializeField] private Mission vehicleFlippedMission;
     [SerializeField] private float timeToCheckFor = 3f;
 
     private float timeAtStart = 0f;
@@ -18,8 +19,8 @@ public class FlipChecker : MonoBehaviour
         // and timeToCheckFor seconds have passes since that first collision
         if (collided.Count > 0 && timeAtStart + timeToCheckFor < Time.time)
         {
-            // notify GameManager of failure
-            GameManager.Instance.OnVehicleFlip();
+            // notify Player of failure
+            GameManager.Instance.MissionManager.ForceNewMission(vehicleFlippedMission);
 
             // disable this script
             enabled = false;

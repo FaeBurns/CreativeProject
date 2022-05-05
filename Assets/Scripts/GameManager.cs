@@ -8,8 +8,15 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private MissionManager missionManager;
-    [SerializeField] private Mission vehicleFlippedMission;
+    /// <summary>
+    /// A global reference to the mission manager.
+    /// </summary>
+    public MissionManager MissionManager;
+
+    /// <summary>
+    /// A global reference to the MessageDisplay.
+    /// </summary>
+    public MessageDisplay MessageDisplay;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GameManager"/> class.
@@ -28,15 +35,6 @@ public class GameManager : MonoBehaviour
     /// Gets a reference to the static GameManager instance.
     /// </summary>
     public static GameManager Instance { get; private set; }
-
-    /// <summary>
-    /// Fails the game with a message about flipping.
-    /// </summary>
-    public void OnVehicleFlip()
-    {
-        Debug.Log("Failed: Flipped");
-        missionManager.ForceNewMission(vehicleFlippedMission);
-    }
 
     /// <summary>
     /// Restarts the game.

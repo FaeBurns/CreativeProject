@@ -63,7 +63,6 @@ public abstract class Mission : MonoBehaviour
     /// </summary>
     public void ForceCancel()
     {
-        Finish();
         Cancel();
     }
 
@@ -99,7 +98,8 @@ public abstract class Mission : MonoBehaviour
     }
 
     /// <summary>
-    /// Called when this Mission is cancelled.
+    /// Called when this Mission is forcibly cancelled.
+    /// Finish is not called alongside it.
     /// </summary>
     protected virtual void Cancel()
     {

@@ -308,18 +308,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  message:
-  - I see you've made it to the crash site.
-  - We've added a few markers to your compass, drive to them and retrieve anything
-    that remains.
-  - Keep an eye on your oxygen and don't let your fuel run low.
-  - Good luck out there driver,\nyou'll need it.
-  timeToWaitFor: 3
-  fadeTime: 1
-  fadeGroup: {fileID: 1748560102}
-  messageText: {fileID: 863603229}
-  startFaded: 1
-  endFaded: 0
+  message: {fileID: 11400000, guid: 55d43a76315e5914b90aa11380046df3, type: 2}
 --- !u!1 &83907592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,17 +1212,7 @@ MonoBehaviour:
   completed:
     m_PersistentCalls:
       m_Calls: []
-  message:
-  - Uh Oh
-  - You flipped your vehicle
-  - There is no coming back from this
-  - You've failed.
-  timeToWaitFor: 3
-  fadeTime: 0.5
-  fadeGroup: {fileID: 1748560102}
-  messageText: {fileID: 863603229}
-  startFaded: 0
-  endFaded: 0
+  message: {fileID: 11400000, guid: 9ebf90f51977a3447ac480b0d2c75976, type: 2}
 --- !u!1 &303477831
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,13 +3228,7 @@ MonoBehaviour:
   completed:
     m_PersistentCalls:
       m_Calls: []
-  message: []
-  timeToWaitFor: 3
-  fadeTime: 0.5
-  fadeGroup: {fileID: 1748560102}
-  messageText: {fileID: 863603229}
-  startFaded: 0
-  endFaded: 0
+  message: {fileID: 11400000, guid: aecf4521d271fd247befd8beb514000a, type: 2}
 --- !u!1 &1052687129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,6 +3607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8a75d88858e514dbeee6257ef5f220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicleFlippedMission: {fileID: 247957959}
   timeToCheckFor: 3
 --- !u!1001 &1220555666
 PrefabInstance:
@@ -5068,6 +5042,7 @@ GameObject:
   - component: {fileID: 1748560104}
   - component: {fileID: 1748560103}
   - component: {fileID: 1748560102}
+  - component: {fileID: 1748560105}
   m_Layer: 5
   m_Name: BriefingPanel
   m_TagString: Untagged
@@ -5145,6 +5120,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748560100}
   m_CullTransparentMesh: 1
+--- !u!114 &1748560105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748560100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1958b94fd297b741879cd24605f422a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeGroup: {fileID: 1748560102}
+  messageText: {fileID: 863603229}
 --- !u!1 &1803362890
 GameObject:
   m_ObjectHideFlags: 0
@@ -5501,8 +5490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c4d84dce0da1c45b3021beaf5e3cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionManager: {fileID: 1861171157}
-  vehicleFlippedMission: {fileID: 247957959}
+  MissionManager: {fileID: 1861171157}
+  MessageDisplay: {fileID: 1748560105}
 --- !u!1 &1876564465
 GameObject:
   m_ObjectHideFlags: 0
