@@ -101,14 +101,15 @@ public class MessageDisplay : MonoBehaviour
             yield return DisplayMessage(message.Sections[i], message.TimeToWaitFor, message.FadeTime);
         }
 
+        // notify caller of completion.
+        // do this before we've finished fading out so that the player does not notice anything weird.
+        onCompletionCallback();
+
         if (!message.EndFaded)
         {
             // fade background out
             yield return FadeGroup(message.FadeTime, 1, 0);
         }
-
-        // notify caller of completion.
-        onCompletionCallback();
 
         // clear
         CurrentlyDisplaying = false;
