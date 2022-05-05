@@ -40,7 +40,7 @@ public abstract class Mission : MonoBehaviour
     {
         Host = host;
 
-        if (compassTarget != null)
+        if (compass != null)
         {
             compass.SetTarget(compassTarget);
         }
@@ -56,6 +56,15 @@ public abstract class Mission : MonoBehaviour
     {
         Finish();
         completed?.Invoke();
+    }
+
+    /// <summary>
+    /// Forcibly cancels this mission.
+    /// </summary>
+    public void ForceCancel()
+    {
+        Finish();
+        Cancel();
     }
 
     /// <summary>
@@ -86,6 +95,13 @@ public abstract class Mission : MonoBehaviour
     /// Called when this Mission has ended.
     /// </summary>
     protected virtual void Finish()
+    {
+    }
+
+    /// <summary>
+    /// Called when this Mission is cancelled.
+    /// </summary>
+    protected virtual void Cancel()
     {
     }
 }

@@ -38,6 +38,17 @@ public class MissionManager : MonoBehaviour
         currentMissionStatement.text = currentMission.MissionStatement;
     }
 
+    /// <summary>
+    /// Forces the MissionManager to start a new mission.
+    /// </summary>
+    /// <param name="mission">The new mission to start.</param>
+    public void ForceNewMission(Mission mission)
+    {
+        currentMission.ForceCancel();
+        currentMission = mission;
+        StartNewMission();
+    }
+
     private void Start()
     {
         StartNewMission();
