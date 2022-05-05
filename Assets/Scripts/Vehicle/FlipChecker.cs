@@ -7,11 +7,13 @@ using UnityEngine;
 /// </summary>
 public class FlipChecker : MonoBehaviour
 {
+    private readonly HashSet<GameObject> collided = new HashSet<GameObject>();
+
     [SerializeField] private Mission vehicleFlippedMission;
     [SerializeField] private float timeToCheckFor = 3f;
+    [SerializeField] private string targetTag = "Terrain";
 
     private float timeAtStart = 0f;
-    private HashSet<GameObject> collided = new HashSet<GameObject>();
 
     private void Update()
     {
@@ -30,7 +32,7 @@ public class FlipChecker : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // check if other has already been seen - otherwise may cause issues if other object has multiple colliders
-        if (!collided.Contains(other.gameObject))
+        if (!collided.Contains(other.gameObject) && other.gameObject.CompareTag(targetTag))
         {
             collided.Add(other.gameObject);
         }
@@ -44,6 +46,7 @@ public class FlipChecker : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // check if other has already been seen - otherwise may cause issues if other object has multiple colliders
+        // do not need to check for tag as a non-tagged object would not make it into the set
         if (collided.Contains(other.gameObject))
         {
             collided.Remove(other.gameObject);

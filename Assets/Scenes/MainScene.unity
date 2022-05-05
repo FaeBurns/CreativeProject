@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 22757401}
   m_Layer: 0
   m_Name: Terrain_(-1000.0, 0.0, -1000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 168827393}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1232,7 +1232,7 @@ GameObject:
   - component: {fileID: 303477840}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1960,7 +1960,7 @@ GameObject:
   - component: {fileID: 504283513}
   m_Layer: 0
   m_Name: Terrain_(-2000.0, 0.0, 2000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 596168171}
   m_Layer: 0
   m_Name: Terrain_(0.0, 0.0, -1000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3609,6 +3609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleFlippedMission: {fileID: 247957959}
   timeToCheckFor: 3
+  targetTag: Terrain
 --- !u!1001 &1220555666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4379,7 +4380,7 @@ GameObject:
   - component: {fileID: 1543167059}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5177,7 +5178,7 @@ GameObject:
   - component: {fileID: 1807560280}
   m_Layer: 0
   m_Name: Terrain_(-3000.0, 0.0, 2000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5505,7 +5506,7 @@ GameObject:
   - component: {fileID: 1876564466}
   m_Layer: 0
   m_Name: Terrain_(-1000.0, 0.0, 1000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5582,7 +5583,7 @@ GameObject:
   - component: {fileID: 1876672037}
   m_Layer: 0
   m_Name: Terrain_(-1000.0, 0.0, 0.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5659,7 +5660,7 @@ GameObject:
   - component: {fileID: 1906897837}
   m_Layer: 0
   m_Name: Terrain_(0.0, 0.0, 1000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6179,7 +6180,7 @@ GameObject:
   - component: {fileID: 2085836011}
   m_Layer: 0
   m_Name: Terrain_(-1000.0, 0.0, 2000.0)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
