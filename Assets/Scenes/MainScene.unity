@@ -1007,7 +1007,7 @@ MonoBehaviour:
   backSteeringWheels:
   - {fileID: 1498809953}
   - {fileID: 755346524}
-  acceleration: 2000
+  acceleration: 3000
   breakingForce: 1500
   maxSteerAngle: 12.5
   maxSpeed: 20
@@ -1024,7 +1024,7 @@ Rigidbody:
   m_GameObject: {fileID: 238157976}
   serializedVersion: 2
   m_Mass: 5000
-  m_Drag: 0
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0

@@ -40,7 +40,7 @@ public class MissionBriefing : Mission
     /// <inheritdoc/>
     protected override void Cancel()
     {
-        GameManager.Instance.MessageDisplay.Stop();
+        GameManager.Instance.MessageDisplay.Stop(true, true);
     }
 
     private void OnMessageFinished()
