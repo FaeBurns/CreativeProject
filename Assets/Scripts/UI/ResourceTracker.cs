@@ -36,13 +36,18 @@ public class ResourceTracker : MonoBehaviour
             int currentCount = pair.Value;
             int max = collectionMission.GetDesiredResourceCount(pair.Key);
 
+            // set active state of marker to active only if this type is desired
+            resourceTextMarkers[pair.Key].gameObject.SetActive(max > 0);
+
             // set text
             resourceTextMarkers[pair.Key].text = string.Format(formatText, resource.Name, currentCount, max);
         }
     }
 
-    private void Awake()
+    public void SetTargetMission(MissionCollectResources targetCollectionMission)
     {
+        collectionMission = targetCollectionMission;
+
         // get list of all resources tracked in the UI
         Dictionary<Resource, int> initialValues = new Dictionary<Resource, int>();
         foreach (KeyValuePair<Resource, TextMeshProUGUI> pair in resourceTextMarkers)

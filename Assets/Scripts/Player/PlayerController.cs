@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerCameraController))]
 [RequireComponent(typeof(SwitchableController))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IVitalityChecker
 {
     [SerializeField]
     private Transform rayOrigin;
@@ -16,7 +16,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float speed = 0.1f;
 
+    [SerializeField] private ResourceVitality vitalityTracker;
+    [SerializeField] private float oxygenDrain = 1f;
+    [SerializeField] private Mission oxygenDeathMission;
+
     private Rigidbody rb;
+
+    public void RefillOxygen()
+    {
+        vitalityTracker.Vitality = vitalityTracker.TargetVitality;
+        vitalityTracker.Refresh();
+    }
+
+    public void OnVitalsDrained()
+    {
+        GameManager.Instance.MissionManager.ForceNewMission(oxygenDeathMission);
+    }
+
+    public float GetCurrentDrain()
+    {
+        return oxygenDrain * Time.deltaTime;
+    }
 
     private void Start()
     {

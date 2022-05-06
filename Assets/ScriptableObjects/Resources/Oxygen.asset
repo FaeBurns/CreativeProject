@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Oxygen
   m_EditorClassIdentifier: 
   Name: Oxygen
+  Icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  Color: {r: 0.46186364, g: 0.84400535, b: 0.9150943, a: 1}
+  StoredVitality: 10

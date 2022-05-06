@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-internal class MissionCollectResources : Mission
+public class MissionCollectResources : Mission
 {
     [SerializeField] private ResourceIntSerializedDictionary desiredResourceCount = new ResourceIntSerializedDictionary();
     [SerializeField] private string adaptiveMissionStatement;
@@ -73,7 +73,10 @@ internal class MissionCollectResources : Mission
     /// </summary>
     public void OnResourceDeposited(Dictionary<Resource, int> resources)
     {
-        cachedResources = resources;
-        NotifyOfProgress();
+        if (Host != null)
+        {
+            cachedResources = resources;
+            NotifyOfProgress();
+        }
     }
 }

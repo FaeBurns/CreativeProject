@@ -12,6 +12,8 @@ using UnityEngine.Events;
 /// </summary>
 public abstract class Mission : MonoBehaviour
 {
+    public bool WasCancelled = false;
+
     [SerializeField] private Mission defaultNextMission;
     [SerializeField] private HudCompass compass;
     [SerializeField] private Transform compassTarget;
@@ -19,12 +21,14 @@ public abstract class Mission : MonoBehaviour
     [SerializeField] private UnityEvent started;
     [SerializeField] private UnityEvent completed;
 
+    public Transform CompassTarget { get => compassTarget; set => compassTarget = value; }
+
     /// <summary>
     /// Gets the mission statement ascociated with this mission.
     /// </summary>
     public abstract string MissionStatement { get; }
 
-    private MissionManager Host { get; set; }
+    protected MissionManager Host { get; private set; }
 
     /// <summary>
     /// Gets, on a scale of 0 to 1, how far along the progress of this mission is. A value of 1 will result in the mission being advanced.
@@ -63,6 +67,7 @@ public abstract class Mission : MonoBehaviour
     /// </summary>
     public void ForceCancel()
     {
+        WasCancelled = true;
         Cancel();
     }
 
@@ -71,7 +76,13 @@ public abstract class Mission : MonoBehaviour
     /// </summary>
     public void NotifyOfProgress()
     {
-        Host.UpdateMissionProgress();
+        if (!WasCancelled)
+        {
+            Host.UpdateMissionProgress();
+            return;
+        }
+
+        End();
     }
 
     /// <summary>

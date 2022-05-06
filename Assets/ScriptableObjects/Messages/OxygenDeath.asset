@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e80b7971999e5245b62b04b14f3943e, type: 3}
-  m_Name: Flipped
+  m_Name: OxygenDeath
   m_EditorClassIdentifier: 
   Sections:
-  - Oh No
-  - You flipped your vehicle
-  - There is no coming back from this
-  - You've failed.
+  - Congratulations, you ran out of oxygen
+  - You are now very, very dead
+  - You did realise you could refill it at your vehicle right?
   - 
   TimeToWaitFor: 3
   FadeTime: 0.5
