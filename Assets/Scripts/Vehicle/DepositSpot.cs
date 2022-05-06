@@ -13,8 +13,15 @@ public class DepositSpot : MonoBehaviour
 {
     /// <summary>
     /// Event fired when a resource is deposited.
+    /// Contains dictionary of all resource counts.
     /// </summary>
     public UnityEvent<Dictionary<Resource, int>> ResourceDeposited;
+
+    /// <summary>
+    /// Event fired when a resource is deposited.
+    /// Only contains the new resource type.
+    /// </summary>
+    public UnityEvent<Resource> SingularResourceDeposited;
 
     private readonly Dictionary<Resource, int> resourceCount = new Dictionary<Resource, int>();
 
@@ -38,7 +45,13 @@ public class DepositSpot : MonoBehaviour
 
         // invoke notify event
         ResourceDeposited?.Invoke(resourceCount);
+        SingularResourceDeposited?.Invoke(resource);
 
         Debug.LogFormat("Resource deposited: {0} x{1}", resource.name, resourceCount[resource]);
+    }
+
+    public void ResetContainer()
+    {
+        resourceCount.Clear();
     }
 }

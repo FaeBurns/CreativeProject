@@ -16,6 +16,9 @@ public class SwitchableController : MonoBehaviour
     [SerializeField] private GameObject[] controlledObjects;
     [SerializeField] private MonoBehaviour[] controlledComponents;
 
+    [SerializeField] private ControlsDisplay controlDisplay;
+    [SerializeField] private ControlDefinition[] controls;
+
     /// <summary>
     /// Gets a value indicating whether this controller is currently active.
     /// </summary>
@@ -45,6 +48,12 @@ public class SwitchableController : MonoBehaviour
         controlledComponents.Execute(c => c.enabled = state);
 
         StateChanged?.Invoke(state);
+
+        // if getting enabled, update controls display
+        if (state)
+        {
+            controlDisplay.Refresh(controls);
+        }
     }
 
     private void Start()

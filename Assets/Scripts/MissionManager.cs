@@ -23,6 +23,12 @@ public class MissionManager : MonoBehaviour
     /// </summary>
     public void UpdateMissionProgress()
     {
+        if(currentMission == null)
+        {
+            currentMissionStatement.text = "No mission selected";
+            return;
+        }
+
         if (currentMission.GetProgress() >= 1f)
         {
             // end current mission
@@ -36,6 +42,26 @@ public class MissionManager : MonoBehaviour
 
         // update statement text regardless - may display progress
         currentMissionStatement.text = currentMission.MissionStatement;
+    }
+
+    /// <summary>
+    /// Forces the MissionManager to start a new mission.
+    /// </summary>
+    /// <param name="mission">The new mission to start.</param>
+    public void ForceNewMission(Mission mission)
+    {
+        currentMission.ForceCancel();
+        currentMission = mission;
+        StartNewMission();
+    }
+    
+    /// <summary>
+    /// Gets the current active mission.
+    /// </summary>
+    /// <returns>the current active mission.</returns>
+    public Mission GetCurrentMission()
+    {
+        return currentMission;
     }
 
     private void Start()
@@ -59,11 +85,10 @@ public class MissionManager : MonoBehaviour
         {
             if (currentMission != null)
             {
-                currentMission.End();
+                currentMission.ForceCancel();
+                currentMission = currentMission.GetNextMission();
+                StartNewMission();
             }
-
-            currentMission = currentMission.GetNextMission();
-            StartNewMission();
         }
     }
 }

@@ -14,6 +14,11 @@ public class VehicleFirstPersonCameraController : MonoBehaviour
     [SerializeField] private float horizontalRange = 100f;
     [SerializeField] private float verticalRange = 60f;
 
+    public void OnDisable()
+    {
+        transform.localRotation = Quaternion.identity;
+    }
+
     private void LateUpdate()
     {
         // use scroll wheel to modify sensitivity in place of an options menu

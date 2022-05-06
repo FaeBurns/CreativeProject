@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e80b7971999e5245b62b04b14f3943e, type: 3}
+  m_Name: Initial
+  m_EditorClassIdentifier: 
+  Sections:
+  - I see you've made it to the crash site.
+  - We've added a few markers to your compass, drive to them and retrieve anything
+    that remains.
+  - Keep an eye on your oxygen and don't let your fuel run low.
+  - Good luck out there driver,\nyou'll need it.
+  TimeToWaitFor: 3
+  FadeTime: 0.5
+  StartFaded: 1
+  EndFaded: 0

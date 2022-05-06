@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Supplies
   m_EditorClassIdentifier: 
   Name: Supplies
+  Icon: {fileID: 0}
+  Color: {r: 0, g: 0, b: 0, a: 1}
+  StoredVitality: 1

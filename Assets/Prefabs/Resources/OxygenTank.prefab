@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1574693788580603704}
   - component: {fileID: 192289399}
   - component: {fileID: 192289398}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OxygenTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,6 +64,20 @@ MonoBehaviour:
   Resource: {fileID: 11400000, guid: 55356482bd0c8d448a671be8919ae7e1, type: 2}
   dropVelocity: 3
   carryOffset: {x: 0.22, y: 0, z: 0.05}
+--- !u!136 &1574693787335996255
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809046796175937041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.85
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.0013904426, z: -0.464136}
 --- !u!1001 &1574693787335996224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GFX
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62d049d5c482d944baf404a38ff2409c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62d049d5c482d944baf404a38ff2409c, type: 3}
 --- !u!1 &1809046796175937041 stripped
@@ -143,17 +161,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62d049d5c482d944baf404a38ff2409c, type: 3}
   m_PrefabInstance: {fileID: 1574693787335996224}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1574693787335996255
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809046796175937041}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.85
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.0013904426, z: -0.464136}

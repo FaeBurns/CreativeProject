@@ -22,7 +22,11 @@ public class HudCompass : MonoBehaviour
 
     private void LateUpdate()
     {
-        // LateUpdate as we need camera to rotate before we check it
+        // exit if target is not set.
+        if (targetTransform == null)
+        {
+            return;
+        }
 
         // should use cached camera, will do for now
         Camera camera = Camera.main;
