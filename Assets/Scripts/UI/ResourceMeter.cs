@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class ResourceMeter : MonoBehaviour
 {
     [SerializeField] private RectTransform fillBar;
     [SerializeField] private Image iconImage;
+    [SerializeField] private TextMeshProUGUI resourceName;
     [SerializeField] private Resource handlingResource;
     [SerializeField] private float targetHeight = 150f;
     [SerializeField] private float targetWidth = 25f;
@@ -35,5 +37,6 @@ public class ResourceMeter : MonoBehaviour
     {
         iconImage.sprite = handlingResource.Icon;
         fillBar.GetComponent<Image>().color = handlingResource.Color;
+        resourceName.text = handlingResource.Name;
     }
 }
