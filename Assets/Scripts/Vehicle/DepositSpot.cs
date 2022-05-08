@@ -50,6 +50,9 @@ public class DepositSpot : MonoBehaviour
         Debug.LogFormat("Resource deposited: {0} x{1}", resource.name, resourceCount[resource]);
     }
 
+    /// <summary>
+    /// Clears everything inside this deposit spot.
+    /// </summary>
     public void ResetContainer()
     {
         resourceCount.Clear();

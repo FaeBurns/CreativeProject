@@ -23,7 +23,7 @@ public class MissionManager : MonoBehaviour
     /// </summary>
     public void UpdateMissionProgress()
     {
-        if(currentMission == null)
+        if (currentMission == null)
         {
             currentMissionStatement.text = "No mission selected";
             return;
@@ -54,7 +54,7 @@ public class MissionManager : MonoBehaviour
         currentMission = mission;
         StartNewMission();
     }
-    
+
     /// <summary>
     /// Gets the current active mission.
     /// </summary>

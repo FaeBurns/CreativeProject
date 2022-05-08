@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// A mission responsible with handling the collection of resources.
+/// </summary>
 public class MissionCollectResources : Mission
 {
     [SerializeField] private ResourceIntSerializedDictionary desiredResourceCount = new ResourceIntSerializedDictionary();
@@ -13,6 +16,7 @@ public class MissionCollectResources : Mission
     private Dictionary<Resource, int> cachedResources = null;
     private float cachedProgress = 0f;
 
+    /// <inheritdoc/>
     public override string MissionStatement => string.Format(adaptiveMissionStatement, Mathf.Floor(cachedProgress * 100f));
 
     /// <summary>
@@ -71,6 +75,7 @@ public class MissionCollectResources : Mission
     /// <summary>
     /// Event handler responding to <see cref="DepositSpot.ResourceDeposited"/>.
     /// </summary>
+    /// <param name="resources">The resources being deposited.</param>
     public void OnResourceDeposited(Dictionary<Resource, int> resources)
     {
         if (Host != null)

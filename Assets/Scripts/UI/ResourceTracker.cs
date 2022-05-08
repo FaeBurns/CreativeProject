@@ -44,6 +44,10 @@ public class ResourceTracker : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the <see cref="MissionCollectResources"/> that's being used to track resources.
+    /// </summary>
+    /// <param name="targetCollectionMission">The mission to track.</param>
     public void SetTargetMission(MissionCollectResources targetCollectionMission)
     {
         collectionMission = targetCollectionMission;

@@ -14,8 +14,9 @@ public class VehicleFirstPersonCameraController : MonoBehaviour
     [SerializeField] private float horizontalRange = 100f;
     [SerializeField] private float verticalRange = 60f;
 
-    public void OnDisable()
+    private void OnDisable()
     {
+        // reset camera to look forward
         transform.localRotation = Quaternion.identity;
     }
 

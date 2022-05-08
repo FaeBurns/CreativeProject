@@ -22,17 +22,24 @@ public class PlayerController : MonoBehaviour, IVitalityChecker
 
     private Rigidbody rb;
 
+    /// <summary>
+    /// Refills the player's oxygen meter.
+    /// </summary>
     public void RefillOxygen()
     {
         vitalityTracker.Vitality = vitalityTracker.TargetVitality;
         vitalityTracker.Refresh();
     }
 
+    /// <summary>
+    /// Handler of <see cref="ResourceVitality.fullyDrained"/>.
+    /// </summary>
     public void OnVitalsDrained()
     {
         GameManager.Instance.MissionManager.ForceNewMission(oxygenDeathMission);
     }
 
+    /// <inheritdoc/>
     public float GetCurrentDrain()
     {
         return oxygenDrain * Time.deltaTime;

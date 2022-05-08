@@ -12,8 +12,6 @@ using UnityEngine.Events;
 /// </summary>
 public abstract class Mission : MonoBehaviour
 {
-    public bool WasCancelled = false;
-
     [SerializeField] private Mission defaultNextMission;
     [SerializeField] private HudCompass compass;
     [SerializeField] private Transform compassTarget;
@@ -21,6 +19,9 @@ public abstract class Mission : MonoBehaviour
     [SerializeField] private UnityEvent started;
     [SerializeField] private UnityEvent completed;
 
+    /// <summary>
+    /// Gets or Sets the compass target ascociated with this mission.
+    /// </summary>
     public Transform CompassTarget { get => compassTarget; set => compassTarget = value; }
 
     /// <summary>
@@ -28,6 +29,14 @@ public abstract class Mission : MonoBehaviour
     /// </summary>
     public abstract string MissionStatement { get; }
 
+    /// <summary>
+    /// Gets a value indicating whether this mission has been cancelled.
+    /// </summary>
+    protected bool WasCancelled { get; private set; } = false;
+
+    /// <summary>
+    /// Gets the MissionManager this mission is hosted by.
+    /// </summary>
     protected MissionManager Host { get; private set; }
 
     /// <summary>

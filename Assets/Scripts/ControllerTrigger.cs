@@ -29,6 +29,7 @@ public class ControllerTrigger : MonoBehaviour
         if (controller != null && controller.enabled)
         {
             Enter?.Invoke();
+            TryDestroy();
         }
     }
 

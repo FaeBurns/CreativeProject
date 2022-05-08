@@ -8,14 +8,16 @@ using UnityEngine.Events;
 /// </summary>
 public class ResourceVitality : MonoBehaviour
 {
+    /// <summary>
+    /// The amount of the resource tracked here.
+    /// </summary>
     public float Vitality = 0f;
-    public float TargetVitality = 100f;
 
     /// <summary>
-    /// Gets a value indicating whether the resource is drained.
+    /// The target count of the resource tracked here.
+    /// Vitality can go above this value but any higher values will not be shown properly.
     /// </summary>
-    [field: SerializeField]
-    public bool Drained { get; private set; }
+    public float TargetVitality = 100f;
 
     [SerializeField] private ResourceMeter meterTarget;
     [SerializeField] private Component vitalityTarget;
@@ -27,8 +29,15 @@ public class ResourceVitality : MonoBehaviour
     private IVitalityChecker cachedTarget;
 
     /// <summary>
+    /// Gets a value indicating whether the resource is drained.
+    /// </summary>
+    [field: SerializeField]
+    public bool Drained { get; private set; }
+
+    /// <summary>
     /// On Resource Deposited.
     /// </summary>
+    /// <param name="deposited">The resource deposited.</param>
     public void OnDeposit(Resource deposited)
     {
         // if the deposited resources is equal to the target resource
@@ -40,6 +49,9 @@ public class ResourceVitality : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates <see cref="Vitality"/> and checks to see if it is drained.
+    /// </summary>
     public void Refresh()
     {
         Vitality -= cachedTarget.GetCurrentDrain();
@@ -66,7 +78,7 @@ public class ResourceVitality : MonoBehaviour
     private void Awake()
     {
         cachedTarget = vitalityTarget as IVitalityChecker;
-        if(cachedTarget == null)
+        if (cachedTarget == null)
         {
             Debug.LogError($"{vitalityTarget.GetType()} does not implement {nameof(IVitalityChecker)}");
         }

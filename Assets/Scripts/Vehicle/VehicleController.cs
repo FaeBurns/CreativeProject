@@ -34,7 +34,6 @@ public class VehicleController : MonoBehaviour, IVitalityChecker
     private bool canMove = true;
     private float movementMultiplier = 1f;
 
-    private float previousSpeed = 0f;
     private float currentAcceleration = 0f;
 
     /// <summary>
@@ -56,11 +55,17 @@ public class VehicleController : MonoBehaviour, IVitalityChecker
         movementMultiplier = 1;
     }
 
+    /// <summary>
+    /// Handles <see cref="ResourceVitality.fullyDrained"/>.
+    /// </summary>
     public void OnDrained()
     {
         canMove = false;
     }
 
+    /// <summary>
+    /// Handles <see cref="ResourceVitality.recovered"/>.
+    /// </summary>
     public void OnRecovered()
     {
         canMove = true;

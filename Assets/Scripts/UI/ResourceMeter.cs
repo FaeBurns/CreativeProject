@@ -2,6 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A component responsible for showing a resource meter on the UI.
+/// </summary>
 public class ResourceMeter : MonoBehaviour
 {
     [SerializeField] private RectTransform fillBar;
@@ -10,6 +13,11 @@ public class ResourceMeter : MonoBehaviour
     [SerializeField] private float targetHeight = 150f;
     [SerializeField] private float targetWidth = 25f;
 
+    /// <summary>
+    /// Refreshes the bar onscreen with the correct size.
+    /// </summary>
+    /// <param name="resourceCount">The amount of resource to show.</param>
+    /// <param name="targetCount">The maximum amount used to calculate how much of the bar is filled.</param>
     public void Refresh(float resourceCount, float targetCount)
     {
         // avoid divide by zero
