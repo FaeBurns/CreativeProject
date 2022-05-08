@@ -6,10 +6,14 @@ using UnityEngine;
 /// </summary>
 public class HudCompass : MonoBehaviour
 {
+    [SerializeField] private float rotationalRange = 330f;
+
     [SerializeField] private RectTransform directionIndicator;
     [SerializeField] private TextMeshProUGUI distanceText;
 
     [SerializeField] private Transform targetTransform;
+
+    private RectTransform rectTransform;
 
     /// <summary>
     /// Sets a new target for the compass to point towards.
@@ -18,6 +22,11 @@ public class HudCompass : MonoBehaviour
     public void SetTarget(Transform newTarget)
     {
         targetTransform = newTarget;
+    }
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
     }
 
     private void LateUpdate()
@@ -34,8 +43,10 @@ public class HudCompass : MonoBehaviour
         Vector3 targetInLocal = camera.transform.InverseTransformPoint(targetTransform.position);
         float targetAngle = Mathf.Atan2(targetInLocal.x, targetInLocal.z) * Mathf.Rad2Deg;
 
+        float multiplier = rectTransform.sizeDelta.x / rotationalRange;
+
         // set the position of the indicator to the angle
-        directionIndicator.anchoredPosition = new Vector2(targetAngle, 0f);
+        directionIndicator.anchoredPosition = new Vector2(targetAngle * multiplier, 0f);
 
         // get raw distance
         float distance = Vector3.Distance(camera.transform.position, targetTransform.position);

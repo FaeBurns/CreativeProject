@@ -280,7 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1310e0f7919d67a43be83de6fd00c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 1162940779}
   compass: {fileID: 0}
   compassTarget: {fileID: 0}
@@ -434,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a575d0ba42c5bf4cb38149cf4cb88f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 971109414}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 414812386}
@@ -554,7 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a575d0ba42c5bf4cb38149cf4cb88f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 876882537}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 1807649079}
@@ -779,7 +776,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 30}
+  m_SizeDelta: {x: 652, y: 48}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &188253523
 MonoBehaviour:
@@ -844,6 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3aaeba06c063a419343cd5a70451c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationalRange: 330
   directionIndicator: {fileID: 2063158555}
   distanceText: {fileID: 2020646831}
   targetTransform: {fileID: 414812386}
@@ -1289,7 +1287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vitality: 0
   TargetVitality: 200
-  <Drained>k__BackingField: 0
   meterTarget: {fileID: 1195534113}
   vitalityTarget: {fileID: 238157978}
   resource: {fileID: 11400000, guid: 0ae2715747255344dafc655f1168ffda, type: 2}
@@ -1323,6 +1320,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <Drained>k__BackingField: 0
 --- !u!1 &240083154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1310e0f7919d67a43be83de6fd00c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 0}
   compass: {fileID: 0}
   compassTarget: {fileID: 0}
@@ -1706,7 +1703,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Vitality: 0
   TargetVitality: 100
-  <Drained>k__BackingField: 0
   meterTarget: {fileID: 1046809467}
   vitalityTarget: {fileID: 303477836}
   resource: {fileID: 11400000, guid: 55356482bd0c8d448a671be8919ae7e1, type: 2}
@@ -1728,6 +1724,7 @@ MonoBehaviour:
   recovered:
     m_PersistentCalls:
       m_Calls: []
+  <Drained>k__BackingField: 0
 --- !u!1 &333255594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +2167,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 150}
+  m_SizeDelta: {x: 65, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &408376985
 MonoBehaviour:
@@ -2323,7 +2320,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 159.68, y: 83.740005}
+  m_SizeDelta: {x: 324.75, y: 170.89}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &485312965
 MonoBehaviour:
@@ -2832,7 +2829,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 1
@@ -3375,12 +3372,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 36
+  m_fontSizeMin: 36
+  m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3529,7 +3526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a575d0ba42c5bf4cb38149cf4cb88f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 0}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 1803362891}
@@ -3584,7 +3580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1310e0f7919d67a43be83de6fd00c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 0}
   compass: {fileID: 0}
   compassTarget: {fileID: 0}
@@ -3769,7 +3764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1064d9e33307f94295fce5d5f8ddbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 160563578}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 238157977}
@@ -4002,7 +3996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1310e0f7919d67a43be83de6fd00c3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 0}
   compass: {fileID: 0}
   compassTarget: {fileID: 0}
@@ -4052,7 +4045,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 150}
+  m_SizeDelta: {x: 65, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046809466
 MonoBehaviour:
@@ -4082,8 +4075,8 @@ MonoBehaviour:
   fillBar: {fileID: 2042583843}
   iconImage: {fileID: 1768900997}
   handlingResource: {fileID: 11400000, guid: 55356482bd0c8d448a671be8919ae7e1, type: 2}
-  targetHeight: 150
-  targetWidth: 25
+  targetHeight: 400
+  targetWidth: 65
 --- !u!114 &1046809468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,7 +4106,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.33
 --- !u!222 &1046809469
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4192,7 +4185,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 280, y: 0}
+  m_SizeDelta: {x: 560, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1106884889
 MonoBehaviour:
@@ -4241,12 +4234,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 48
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -4372,8 +4365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 25, y: 25}
+  m_AnchoredPosition: {x: 0, y: -56}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1112673521
 MonoBehaviour:
@@ -4624,7 +4617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1064d9e33307f94295fce5d5f8ddbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 1359889930}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 238157977}
@@ -4831,7 +4823,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 150}
+  m_SizeDelta: {x: 65, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195534110
 MonoBehaviour:
@@ -4862,7 +4854,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.33
 --- !u!222 &1195534111
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4899,8 +4891,8 @@ MonoBehaviour:
   fillBar: {fileID: 408376984}
   iconImage: {fileID: 1112673521}
   handlingResource: {fileID: 11400000, guid: 0ae2715747255344dafc655f1168ffda, type: 2}
-  targetHeight: 150
-  targetWidth: 25
+  targetHeight: 400
+  targetWidth: 65
 --- !u!1001 &1220555666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5101,7 +5093,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -5}
-  m_SizeDelta: {x: 139.68, y: 24.58}
+  m_SizeDelta: {x: 304.75, y: 53.63}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1272879809
 MonoBehaviour:
@@ -5150,8 +5142,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5366,7 +5358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a575d0ba42c5bf4cb38149cf4cb88f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WasCancelled: 0
   defaultNextMission: {fileID: 99590120}
   compass: {fileID: 188253526}
   compassTarget: {fileID: 1807649079}
@@ -5610,12 +5601,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 1
-  m_MatchWidthOrHeight: 0
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5778,8 +5769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -29.58}
-  m_SizeDelta: {x: 139.68, y: 24.58}
+  m_AnchoredPosition: {x: 10, y: -58.63}
+  m_SizeDelta: {x: 304.75, y: 53.63}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1561589377
 MonoBehaviour:
@@ -5828,8 +5819,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6474,8 +6465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 25, y: 25}
+  m_AnchoredPosition: {x: 0, y: -56}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1768900997
 MonoBehaviour:
@@ -7191,7 +7182,7 @@ GameObject:
   - component: {fileID: 2020646832}
   - component: {fileID: 2020646831}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DistanceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7213,7 +7204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -28}
+  m_AnchoredPosition: {x: 0, y: -48}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2020646831
@@ -7263,8 +7254,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7381,7 +7372,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 25, y: 150}
+  m_SizeDelta: {x: 65, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2042583844
 MonoBehaviour:
@@ -7457,7 +7448,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063158556
 MonoBehaviour:
@@ -8197,8 +8188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -54.16}
-  m_SizeDelta: {x: 139.68, y: 24.58}
+  m_AnchoredPosition: {x: 10, y: -112.26}
+  m_SizeDelta: {x: 304.75, y: 53.63}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2145309820
 MonoBehaviour:
@@ -8247,8 +8238,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
