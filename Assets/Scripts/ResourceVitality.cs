@@ -86,6 +86,11 @@ public class ResourceVitality : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Vitality = TargetVitality;
+        }
+
         Refresh();
     }
 }
