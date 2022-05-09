@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e80b7971999e5245b62b04b14f3943e, type: 3}
   m_Name: Victory
   m_EditorClassIdentifier: 
-  Sections: []
+  Sections:
+  - Victory.
+  - Message Schmessage
   TimeToWaitFor: 3
   FadeTime: 0.5
   StartFaded: 0

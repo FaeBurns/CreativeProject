@@ -10,10 +10,11 @@ using UnityEngine;
 /// </summary>
 public class MissionCollectResources : Mission
 {
+    private readonly Dictionary<Resource, int> depositedResources = new Dictionary<Resource, int>();
+
     [SerializeField] private ResourceIntSerializedDictionary desiredResourceCount = new ResourceIntSerializedDictionary();
     [SerializeField] private string adaptiveMissionStatement;
 
-    private Dictionary<Resource, int> cachedResources = null;
     private float cachedProgress = 0f;
 
     /// <inheritdoc/>
@@ -37,7 +38,7 @@ public class MissionCollectResources : Mission
     /// <inheritdoc/>
     public override float GetProgress()
     {
-        if (cachedResources is null)
+        if (depositedResources is null)
         {
             return 0;
         }
@@ -53,7 +54,7 @@ public class MissionCollectResources : Mission
             totalResourceCount += pair.Value;
 
             // if the input resources has an entry for it
-            if (cachedResources.TryGetValue(pair.Key, out int value))
+            if (depositedResources.TryGetValue(pair.Key, out int value))
             {
                 // add to the tally of collected resources
                 totalResourcesCollected += value;
@@ -73,15 +74,39 @@ public class MissionCollectResources : Mission
     }
 
     /// <summary>
-    /// Event handler responding to <see cref="DepositSpot.ResourceDeposited"/>.
+    /// Event handler responding to <see cref="DepositSpot.SingularResourceDeposited"/>.
     /// </summary>
-    /// <param name="resources">The resources being deposited.</param>
-    public void OnResourceDeposited(Dictionary<Resource, int> resources)
+    /// <param name="resource">The resource being deposited.</param>
+    public void OnResourceDeposited(Resource resource)
     {
         if (Host != null)
         {
-            cachedResources = resources;
+            if (depositedResources.ContainsKey(resource))
+            {
+                depositedResources[resource]++;
+            }
+            else
+            {
+                depositedResources.Add(resource, 1);
+            }
+
+            GameManager.Instance.ResourceTracker.UpdateResources(depositedResources);
+
             NotifyOfProgress();
         }
+    }
+
+    /// <inheritdoc/>
+    protected override void Begin()
+    {
+        GameManager.Instance.ResourceTracker.SetTargetMission(this);
+        GameManager.Instance.ResourceTracker.gameObject.SetActive(true);
+        GameManager.Instance.ResourceTracker.UpdateResources(depositedResources);
+    }
+
+    /// <inheritdoc/>
+    protected override void CommonClose()
+    {
+        GameManager.Instance.ResourceTracker.gameObject.SetActive(false);
     }
 }

@@ -21,13 +21,16 @@ public class ControllerTrigger : MonoBehaviour
     /// </summary>
     public UnityEvent Exit;
 
+    private readonly HashSet<SwitchableController> overlapping = new HashSet<SwitchableController>();
+
     [SerializeField] private bool destroySelfOnEnter;
 
     private void OnTriggerEnter(Collider other)
     {
         SwitchableController controller = other.GetComponentInParent<SwitchableController>();
-        if (controller != null && controller.enabled)
+        if (controller != null && controller.enabled && !overlapping.Contains(controller))
         {
+            overlapping.Add(controller);
             Enter?.Invoke();
             TryDestroy();
         }
@@ -36,9 +39,10 @@ public class ControllerTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         SwitchableController controller = other.GetComponentInParent<SwitchableController>();
-        if (controller != null && controller.enabled)
+        if (controller != null && controller.enabled && overlapping.Contains(controller))
         {
             Exit?.Invoke();
+            overlapping.Remove(controller);
         }
     }
 

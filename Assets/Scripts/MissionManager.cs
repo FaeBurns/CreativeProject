@@ -45,12 +45,22 @@ public class MissionManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Forces the MissionManager to start a new mission.
+    /// Forces the <see cref="MissionManager"/> to start a new mission.
     /// </summary>
     /// <param name="mission">The new mission to start.</param>
     public void ForceNewMission(Mission mission)
     {
         currentMission.ForceCancel();
+        currentMission = mission;
+        StartNewMission();
+    }
+
+    /// <summary>
+    /// Forces the <see cref="MissionManager"/> to start a new mission without cancelling the old one.
+    /// </summary>
+    /// <param name="mission">The new mission to start.</param>
+    public void OverrideMission(Mission mission)
+    {
         currentMission = mission;
         StartNewMission();
     }
@@ -73,6 +83,7 @@ public class MissionManager : MonoBehaviour
     {
         if (currentMission != null)
         {
+            Debug.Log($"Starting new mission: {currentMission}");
             missionBegun?.Invoke();
             currentMission.Initialize(this);
             currentMissionStatement.text = currentMission.MissionStatement;

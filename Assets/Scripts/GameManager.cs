@@ -9,14 +9,24 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     /// <summary>
-    /// A global reference to the mission manager.
+    /// A global reference to the <see cref="MissionManager"/>.
     /// </summary>
     public MissionManager MissionManager;
 
     /// <summary>
-    /// A global reference to the MessageDisplay.
+    /// A global reference to the <see cref="MessageDisplay"/>.
     /// </summary>
     public MessageDisplay MessageDisplay;
+
+    /// <summary>
+    /// A global reference to the <see cref="ResourceTracker"/>.
+    /// </summary>
+    public ResourceTracker ResourceTracker;
+
+    /// <summary>
+    /// A global reference to the <see cref="HudCompass"/>.
+    /// </summary>
+    public HudCompass HudCompass;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GameManager"/> class.
@@ -52,5 +62,12 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+#if !UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+#endif
     }
 }

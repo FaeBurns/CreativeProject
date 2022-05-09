@@ -13,16 +13,9 @@ using UnityEngine.Events;
 public abstract class Mission : MonoBehaviour
 {
     [SerializeField] private Mission defaultNextMission;
-    [SerializeField] private HudCompass compass;
-    [SerializeField] private Transform compassTarget;
 
     [SerializeField] private UnityEvent started;
     [SerializeField] private UnityEvent completed;
-
-    /// <summary>
-    /// Gets or Sets the compass target ascociated with this mission.
-    /// </summary>
-    public Transform CompassTarget { get => compassTarget; set => compassTarget = value; }
 
     /// <summary>
     /// Gets the mission statement ascociated with this mission.
@@ -53,13 +46,11 @@ public abstract class Mission : MonoBehaviour
     {
         Host = host;
 
-        if (compass != null)
-        {
-            compass.SetTarget(compassTarget);
-        }
-
         Begin();
         started?.Invoke();
+
+        // immediatley check for progress
+        NotifyOfProgress();
     }
 
     /// <summary>
@@ -68,6 +59,8 @@ public abstract class Mission : MonoBehaviour
     public void End()
     {
         Finish();
+        Host = null;
+        CommonClose();
         completed?.Invoke();
     }
 
@@ -78,6 +71,8 @@ public abstract class Mission : MonoBehaviour
     {
         WasCancelled = true;
         Cancel();
+        Host = null;
+        CommonClose();
     }
 
     /// <summary>
@@ -122,6 +117,13 @@ public abstract class Mission : MonoBehaviour
     /// Finish is not called alongside it.
     /// </summary>
     protected virtual void Cancel()
+    {
+    }
+
+    /// <summary>
+    /// Called when this Mission is either forcibly closed or ended.
+    /// </summary>
+    protected virtual void CommonClose()
     {
     }
 }
