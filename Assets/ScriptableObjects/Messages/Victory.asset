@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Victory
   m_EditorClassIdentifier: 
   Sections:
-  - Victory.
-  - Message Schmessage
-  TimeToWaitFor: 3
+  - Good job
+  - You recovered everything
+  - (Game Complete, Restarting)
+  TimeToWaitFor: 1
   FadeTime: 0.5
   StartFaded: 0
-  EndFaded: 0
+  EndFaded: 1
