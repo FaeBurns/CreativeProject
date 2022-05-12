@@ -73,6 +73,7 @@ public abstract class Mission : MonoBehaviour
         Cancel();
         Host = null;
         CommonClose();
+        completed?.Invoke();
     }
 
     /// <summary>
