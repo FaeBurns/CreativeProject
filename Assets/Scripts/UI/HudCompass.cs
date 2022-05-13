@@ -14,7 +14,6 @@ public class HudCompass : MonoBehaviour
     [SerializeField] private List<CompassIndicator> indicators = new List<CompassIndicator>();
     [SerializeField] private List<Transform> targets;
 
-
     private RectTransform rectTransform;
 
     /// <summary>
