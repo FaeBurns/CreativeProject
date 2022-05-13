@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 /// <summary>
 /// Component responsible for updating the compass on the UI.
