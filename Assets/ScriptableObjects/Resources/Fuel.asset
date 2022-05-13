@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Fuel
   Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   Color: {r: 0.13616945, g: 0.5660378, b: 0.2674269, a: 1}
-  StoredVitality: 40
+  StoredVitality: 80
