@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// A component containing a reference to the components required by the <see cref="HudCompass"/>.
@@ -25,4 +26,9 @@ public class CompassIndicator : MonoBehaviour
     /// The <see cref="RectTransform"/> used to position the text.
     /// </summary>
     public RectTransform TextRectTransform;
+
+    /// <summary>
+    /// The <see cref="Image"/> used to display the point.
+    /// </summary>
+    public Image PointImage;
 }

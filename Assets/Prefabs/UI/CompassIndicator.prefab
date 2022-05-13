@@ -92,6 +92,7 @@ MonoBehaviour:
   RectTransform: {fileID: 6160269972744197513}
   TextMesh: {fileID: 6160269972768917309}
   TextRectTransform: {fileID: 6160269972768917308}
+  PointImage: {fileID: 6160269972744197518}
 --- !u!1 &6160269972768917311
 GameObject:
   m_ObjectHideFlags: 0

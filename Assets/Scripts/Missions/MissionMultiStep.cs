@@ -27,15 +27,24 @@ public class MissionMultiStep : Mission
     {
         foreach (Mission mission in subMissions)
         {
+            // get compass target from mission
+            CompassTarget missionTarget = mission.GetComponent<CompassTarget>();
+
+            // ignore if mission does not have compass target
+            if (missionTarget == null)
+            {
+                continue;
+            }
+
             // remove target
             // if the target is still required then it will just be added back later
-            GameManager.Instance.HudCompass.RemoveTarget(mission.transform);
+            GameManager.Instance.HudCompass.RemoveTarget(missionTarget);
 
             // if mission is not complete
             if (mission.GetProgress() < 1f)
             {
                 // add to compass targets
-                GameManager.Instance.HudCompass.AddTarget(mission.transform);
+                GameManager.Instance.HudCompass.AddTarget(missionTarget);
             }
         }
     }

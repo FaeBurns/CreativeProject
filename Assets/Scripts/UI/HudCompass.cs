@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// Component responsible for updating the compass on the UI.
@@ -12,7 +13,7 @@ public class HudCompass : MonoBehaviour
 
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField] private List<CompassIndicator> indicators = new List<CompassIndicator>();
-    [SerializeField] private List<Transform> targets;
+    [SerializeField] private List<CompassTarget> targets;
 
     private RectTransform rectTransform;
 
@@ -20,7 +21,7 @@ public class HudCompass : MonoBehaviour
     /// Adds a new target to the collection.
     /// </summary>
     /// <param name="newTarget">The new target to point at.</param>
-    public void AddTarget(Transform newTarget)
+    public void AddTarget(CompassTarget newTarget)
     {
         targets.Add(newTarget);
         UpdatePointCount();
@@ -30,7 +31,7 @@ public class HudCompass : MonoBehaviour
     /// Removes a target from the collection.
     /// </summary>
     /// <param name="target">The target to remove.</param>
-    public void RemoveTarget(Transform target)
+    public void RemoveTarget(CompassTarget target)
     {
         targets.Remove(target);
         UpdatePointCount();
@@ -41,7 +42,7 @@ public class HudCompass : MonoBehaviour
     /// </summary>
     /// <param name="target">The target to check.</param>
     /// <returns>True if a target was found, false if not.</returns>
-    public bool ContainsTarget(Transform target)
+    public bool ContainsTarget(CompassTarget target)
     {
         return targets.Contains(target);
     }
@@ -63,13 +64,16 @@ public class HudCompass : MonoBehaviour
     private void LateUpdate()
     {
         // exit if target is not set.
-        if (targets == null)
+        if (targets.Count == 0)
         {
             return;
         }
 
         // should use cached camera, will do for now
         Camera camera = Camera.main;
+
+        // reorder collection to have closest target first.
+        targets = targets.OrderBy(target => Vector3.Distance(camera.transform.position, target.transform.position)).ToList();
 
         for (int i = 0; i < targets.Count; i++)
         {
@@ -78,9 +82,9 @@ public class HudCompass : MonoBehaviour
         }
     }
 
-    private void UpdateCompassPoint(Transform target, CompassIndicator indicator, int index, Camera camera)
+    private void UpdateCompassPoint(CompassTarget target, CompassIndicator indicator, int index, Camera camera)
     {
-        Vector3 targetInLocal = camera.transform.InverseTransformPoint(target.position);
+        Vector3 targetInLocal = camera.transform.InverseTransformPoint(target.transform.position);
         float targetAngle = Mathf.Atan2(targetInLocal.x, targetInLocal.z) * Mathf.Rad2Deg;
 
         float multiplier = rectTransform.sizeDelta.x / rotationalRange;
@@ -89,7 +93,7 @@ public class HudCompass : MonoBehaviour
         indicator.RectTransform.anchoredPosition = new Vector2(targetAngle * multiplier, 0f);
 
         // get raw distance
-        float distance = Vector3.Distance(camera.transform.position, target.position);
+        float distance = Vector3.Distance(camera.transform.position, target.transform.position);
 
         // get as integer
         distance = Mathf.Floor(distance);
@@ -97,6 +101,10 @@ public class HudCompass : MonoBehaviour
         // set the distance text
         indicator.TextMesh.text = distance.ToString() + "m";
         indicator.TextRectTransform.anchoredPosition = new Vector2(0, (index + 1) * textOffset);
+
+        // set colours
+        indicator.PointImage.color = target.TargetColor;
+        indicator.TextMesh.color = target.TargetColor;
     }
 
     private void UpdatePointCount()

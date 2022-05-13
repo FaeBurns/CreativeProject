@@ -947,8 +947,8 @@ MonoBehaviour:
         m_MethodName: AddTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1622582978}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_ObjectArgument: {fileID: 1622582981}
+          m_ObjectArgumentAssemblyTypeName: CompassTarget, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4152,6 +4152,7 @@ GameObject:
   - component: {fileID: 238157980}
   - component: {fileID: 238157981}
   - component: {fileID: 238157982}
+  - component: {fileID: 238157983}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Untagged
@@ -4378,6 +4379,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   <Drained>k__BackingField: 0
+--- !u!114 &238157983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238157976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.8018868, g: 0.5694855, b: 0.21560162, a: 1}
 --- !u!1001 &239709538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7720,6 +7734,7 @@ GameObject:
   - component: {fileID: 522018172}
   - component: {fileID: 522018174}
   - component: {fileID: 522018173}
+  - component: {fileID: 522018175}
   m_Layer: 0
   m_Name: ValleyEntrance
   m_TagString: Untagged
@@ -7785,6 +7800,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 201.84, y: 29.88, z: 73.35}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &522018175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522018171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &527787834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8759,6 +8787,7 @@ GameObject:
   - component: {fileID: 568344007}
   - component: {fileID: 568344008}
   - component: {fileID: 568344009}
+  - component: {fileID: 568344010}
   m_Layer: 0
   m_Name: Cache1Mission
   m_TagString: Untagged
@@ -8874,6 +8903,19 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 414704d3aba740c4eb9eb65a75e25d7f, type: 2}
     m_values: 050000000200000002000000
   adaptiveMissionStatement: Collect the scattered resources. {0}%
+--- !u!114 &568344010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568344005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.13725491, g: 0.5647059, b: 0.26666668, a: 1}
 --- !u!1001 &572655936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15452,8 +15494,8 @@ MonoBehaviour:
         m_MethodName: AddTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 522018172}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_ObjectArgument: {fileID: 522018175}
+          m_ObjectArgumentAssemblyTypeName: CompassTarget, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15974,6 +16016,7 @@ GameObject:
   - component: {fileID: 1151308207}
   - component: {fileID: 1151308206}
   - component: {fileID: 1151308205}
+  - component: {fileID: 1151308208}
   m_Layer: 0
   m_Name: Cache3Mission
   m_TagString: Untagged
@@ -16089,6 +16132,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 50, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1151308208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151308203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.8901961, g: 0.5176471, b: 0.3647059, a: 1}
 --- !u!1 &1152029596
 GameObject:
   m_ObjectHideFlags: 0
@@ -16209,8 +16265,8 @@ MonoBehaviour:
         m_MethodName: AddTarget
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 238157977}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_ObjectArgument: {fileID: 238157983}
+          m_ObjectArgumentAssemblyTypeName: CompassTarget, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -17144,6 +17200,7 @@ GameObject:
   - component: {fileID: 1253672955}
   - component: {fileID: 1253672954}
   - component: {fileID: 1253672953}
+  - component: {fileID: 1253672956}
   m_Layer: 0
   m_Name: Cache5Mission
   m_TagString: Untagged
@@ -17259,6 +17316,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 50, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1253672956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253672951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.4627451, g: 0.84313726, b: 0.9137255, a: 1}
 --- !u!1001 &1267556982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19886,6 +19956,7 @@ GameObject:
   - component: {fileID: 1622582978}
   - component: {fileID: 1622582980}
   - component: {fileID: 1622582979}
+  - component: {fileID: 1622582981}
   m_Layer: 0
   m_Name: MissionTrigger
   m_TagString: Untagged
@@ -19951,6 +20022,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 100, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1622582981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622582977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.8867924, g: 0.51374865, b: 0.36391956, a: 1}
 --- !u!1001 &1637865323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21918,6 +22002,7 @@ GameObject:
   - component: {fileID: 1845043355}
   - component: {fileID: 1845043354}
   - component: {fileID: 1845043353}
+  - component: {fileID: 1845043356}
   m_Layer: 0
   m_Name: Cache2Mission
   m_TagString: Untagged
@@ -22033,6 +22118,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 50, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1845043356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845043351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.4627451, g: 0.84313726, b: 0.9137255, a: 1}
 --- !u!1 &1860617764
 GameObject:
   m_ObjectHideFlags: 0
@@ -22189,6 +22287,7 @@ GameObject:
   - component: {fileID: 1919500117}
   - component: {fileID: 1919500116}
   - component: {fileID: 1919500115}
+  - component: {fileID: 1919500118}
   m_Layer: 0
   m_Name: Cache4Mission
   m_TagString: Untagged
@@ -22304,6 +22403,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 50, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1919500118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919500113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da66fdf74bba304f8fc740685ead687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetColor: {r: 0.13725491, g: 0.5647059, b: 0.26666668, a: 1}
 --- !u!1001 &1924338204
 PrefabInstance:
   m_ObjectHideFlags: 0
