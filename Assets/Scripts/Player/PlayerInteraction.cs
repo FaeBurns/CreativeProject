@@ -11,6 +11,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Carryable currentlyHeldObject;
     [SerializeField] private float interactDistance = 1.5f;
 
+    [SerializeField] private LayerMask interactLayerMask;
+
     private SwitchableController switchController;
 
     private void Start()
@@ -55,12 +57,12 @@ public class PlayerInteraction : MonoBehaviour
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
 
         // return result from cast
-        return Physics.Raycast(ray, out hitInfo, distance);
+        return Physics.Raycast(ray, out hitInfo, distance, interactLayerMask.value);
     }
 
     private void CheckForInteractions()
     {
-        // if an object was found when using the vehicle's search distance
+        // if an object was found
         if (CheckForObject(interactDistance, out RaycastHit hitInfo))
         {
             // Get SwitchableController in target
