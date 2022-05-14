@@ -11,6 +11,11 @@ public class SwitchableController : MonoBehaviour
     /// </summary>
     public UnityEvent<bool> StateChanged;
 
+    /// <summary>
+    /// Event fired when this controller is switched to.
+    /// </summary>
+    public UnityEvent SwitchedTo;
+
     [SerializeField] private bool enableOnStart = false;
 
     [SerializeField] private GameObject[] controlledObjects;
@@ -53,6 +58,9 @@ public class SwitchableController : MonoBehaviour
         if (state)
         {
             controlDisplay.Refresh(controls);
+
+            // notify of switch
+            SwitchedTo?.Invoke();
         }
     }
 

@@ -29,6 +29,8 @@ public class VehicleController : MonoBehaviour, IVitalityChecker
 
     [SerializeField] private float fuelUsageMultiplier = 0.01f;
 
+    [SerializeField] private TriggerCountCheck triggerCountCheck;
+
     private bool currentCamForward;
 
     private bool canMove = true;
@@ -85,7 +87,15 @@ public class VehicleController : MonoBehaviour, IVitalityChecker
             // switch to player
             playerSwitchController.SwitchTo(switchController);
 
-            // teleport player
+            // if the exit point is blocked.
+            if (triggerCountCheck.OverlapCount > 0)
+            {
+                playerSwitchController.transform.SetPositionAndRotation(transform.position + new Vector3(0, 5, 0), transform.rotation);
+                return;
+            }
+
+            // if the exit point is not blocked
+            // teleport player to normal position
             playerSwitchController.transform.SetPositionAndRotation(exitLocation.position, exitLocation.rotation);
 
             return;
