@@ -74,21 +74,6 @@ public class VehicleController : MonoBehaviour, IVitalityChecker
     /// <inheritdoc/>
     public float GetCurrentDrain()
     {
-        /*
-        float currentSpeed = rb.velocity.magnitude;
-
-        // get the difference between speeds
-        // make sure it does not go negative
-        float diff = Mathf.Max(currentSpeed - previousSpeed, 0);
-
-        // only actually count if acceleration is intentional
-        diff *= acceleration > 0 ? 1 : 0;
-
-        // update previous speed
-        previousSpeed = currentSpeed;
-
-        return diff;
-        */
         return (Mathf.Abs(currentAcceleration) * fuelUsageMultiplier) * Time.deltaTime;
     }
 
@@ -140,7 +125,7 @@ public class VehicleController : MonoBehaviour, IVitalityChecker
         allWheels.Execute(c => c.motorTorque = rb.velocity.sqrMagnitude <= (maxSpeed * maxSpeed) ? currentAcceleration * movementMultiplier : 0);
 
         // apply brake to wheels
-        allWheels.Execute(c => c.brakeTorque = currentBrakeForce * movementMultiplier);
+        allWheels.Execute(c => c.brakeTorque = currentBrakeForce);
 
         // steer on input
         float currentSteeringAngle = maxSteerAngle * Input.GetAxis("Horizontal");
